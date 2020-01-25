@@ -32,8 +32,22 @@ class MetronomeViewController: UIViewController {
     var isOn = false {
         didSet {
             if isOn {
+                tickCounter = -1
                 startButton.setBackgroundImage(UIImage(systemName: "pause"), for: .normal)
                 timer.start()
+                
+                players = []
+                
+                for _ in 0...3 {
+                    guard let player = AVAudioPlayer.createPlayerFromFile(withName: "Hi-hat") else { continue }
+                    players.append(player)
+                }
+                
+                let time = players[0].deviceCurrentTime
+                for i in 0...3 {
+                    players[i].play(atTime: time + timer.tickDuration * Double(i * 2))
+                }
+                
             } else {
                 startButton.setBackgroundImage(UIImage(systemName: "play"), for: .normal)
                 timer.stop()
@@ -65,7 +79,7 @@ class MetronomeViewController: UIViewController {
     private var players: [AVAudioPlayer] = []
     private var timer = BPMTimer(bpm: 120.0)
     private var isDoubleTime = false
-    private var tickCounter = 0
+    private var tickCounter = -1
     
     // MARK: - Lifecycle
     
@@ -140,8 +154,6 @@ class MetronomeViewController: UIViewController {
 // MARK: - BPMTimerDelegate
 extension MetronomeViewController: BPMTimerDelegate {
     
-    
-    
     func bpmTimerTicked() {
         
         players.removeAll { !$0.isPlaying }
@@ -152,52 +164,28 @@ extension MetronomeViewController: BPMTimerDelegate {
             tickCounter = 0
         }
         
-        //counter.text = "\(Int(((self.tickCounter + 7)%8)/2) + 1)" // ???
-
-        for i in 0..<beats[tickCounter].count {
-            if beats[tickCounter][i] == nil {
-                continue
-            }
-            
-            let player: AVAudioPlayer
-                
-            let path = Bundle.main.path(forResource: beats[tickCounter][i]?.name(), ofType: "wav")!
-            let url = URL(fileURLWithPath: path)
-                
-            do {
-                player = try AVAudioPlayer(contentsOf: url)
-                players.append(player)
-            } catch {
-                print("error")
-            }
-        }
+        //counter.text = "\(self.tickCounter + 1)"
         
-        for i in 0..<notes[tickCounter].count {
-            if notes[tickCounter][i] == nil {
+        let data: [Data?] = beats[tickCounter] + notes[tickCounter]
+        
+        for i in 0..<data.count {
+            
+            guard let name = data[i]?.name(),
+                  let player = AVAudioPlayer.createPlayerFromFile(withName: name)
+            else {
                 continue
             }
             
-            let player: AVAudioPlayer
-                
-            let path = Bundle.main.path(forResource: notes[tickCounter][i]?.name(), ofType: "wav")!
-            let url = URL(fileURLWithPath: path)
-                
-            do {
-                player = try AVAudioPlayer(contentsOf: url)
-                players.append(player)
-            } catch {
-                print("error")
-            }
+            players.append(player)
         }
         
         if players.isEmpty { return }
         
-        let time = players[0].deviceCurrentTime + timer.timeToNextTick// * 4
+        let time = players[0].deviceCurrentTime + timer.tickDuration * 7
 
         for player in players {
             player.play(atTime: time)
         }
-        
     }
     
 }
@@ -208,6 +196,23 @@ extension MetronomeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+}
+
+extension AVAudioPlayer {
+    
+    static func createPlayerFromFile(withName name: String) -> AVAudioPlayer? {
+
+        let path = Bundle.main.path(forResource: name, ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+            
+        do {
+            return try AVAudioPlayer(contentsOf: url)
+        } catch {
+            return nil
+        }
+        
     }
     
 }
