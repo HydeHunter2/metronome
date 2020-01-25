@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditableTableViewCell" customModule="metronome" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EditableTableViewCell" customModule="metronome" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Wu4-F3-7bl">
+                        <rect key="frame" x="16" y="4" width="343" height="72"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-dD-2Fk">
+                                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KMp-dD-2Fk" secondAttribute="height" multiplier="1:1" id="Jwd-wg-8gn"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4p-h9-oea">
+                                <rect key="frame" x="88" y="0.0" width="255" height="72"/>
+                                <state key="normal" title="Title">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="openInstruments:" destination="-2" eventType="touchUpInside" id="mko-Wc-5ew"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KMp-dD-2Fk" firstAttribute="top" secondItem="Wu4-F3-7bl" secondAttribute="top" id="FZH-3c-HJY"/>
+                            <constraint firstItem="d4p-h9-oea" firstAttribute="top" secondItem="Wu4-F3-7bl" secondAttribute="top" id="JIg-I5-mcE"/>
+                            <constraint firstItem="KMp-dD-2Fk" firstAttribute="leading" secondItem="Wu4-F3-7bl" secondAttribute="leading" id="aDG-jB-qeL"/>
+                            <constraint firstItem="d4p-h9-oea" firstAttribute="leading" secondItem="KMp-dD-2Fk" secondAttribute="trailing" constant="16" id="dCh-80-G7E"/>
+                            <constraint firstAttribute="bottom" secondItem="d4p-h9-oea" secondAttribute="bottom" id="dwm-hh-1TE"/>
+                            <constraint firstAttribute="trailing" secondItem="d4p-h9-oea" secondAttribute="trailing" id="j2x-xA-gU4"/>
+                            <constraint firstAttribute="bottom" secondItem="KMp-dD-2Fk" secondAttribute="bottom" id="mvy-iu-ebZ"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Wu4-F3-7bl" secondAttribute="bottom" constant="4" id="0mI-XZ-w4H"/>
+                    <constraint firstAttribute="trailing" secondItem="Wu4-F3-7bl" secondAttribute="trailing" constant="16" id="Nbw-nT-czr"/>
+                    <constraint firstItem="Wu4-F3-7bl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s5B-Os-zbR"/>
+                    <constraint firstItem="Wu4-F3-7bl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="tZ6-oX-Lru"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buttonWithSound" destination="KMp-dD-2Fk" id="gln-rN-xgc"/>
+                <outlet property="titleButton" destination="d4p-h9-oea" id="dlo-Sl-qWT"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="123"/>
+        </tableViewCell>
+    </objects>
+</document>
