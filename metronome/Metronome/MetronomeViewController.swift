@@ -13,10 +13,8 @@ class MetronomeViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var counter: UILabel!
-    @IBOutlet weak var stepperBPM: UIStepper!
-    @IBOutlet weak var fieldBPM: UITextField!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var pickerBPM: UIPickerView!
     
     // MARK: - Public Properties
     
@@ -32,11 +30,12 @@ class MetronomeViewController: UIViewController {
     var isOn = false {
         didSet {
             if isOn {
-                tickCounter = -1
                 startButton.setBackgroundImage(UIImage(systemName: "pause"), for: .normal)
-                timer.start()
+                UIApplication.shared.isIdleTimerDisabled = true
                 
                 players = []
+                tickCounter = -1
+                timer.start()
                 
                 for _ in 0...3 {
                     guard let player = AVAudioPlayer.createPlayerFromFile(withName: "Hi-hat") else { continue }
@@ -50,10 +49,11 @@ class MetronomeViewController: UIViewController {
                 
             } else {
                 startButton.setBackgroundImage(UIImage(systemName: "play"), for: .normal)
+                UIApplication.shared.isIdleTimerDisabled = false
+                
                 timer.stop()
-                players = []
                 tickCounter = 0
-                counter.text = "1"
+                players = []
             }
         }
     }
@@ -94,12 +94,14 @@ class MetronomeViewController: UIViewController {
     
     private func setupDelegates() {
         timer.delegate = self
-        fieldBPM.delegate = self
+        pickerBPM.delegate = self
+        pickerBPM.dataSource = self
     }
     
     private func setupUI() {
-        fieldBPM.text = "\(Int(timer.bpm))"
-        stepperBPM.value = timer.bpm
+        pickerBPM.selectRow(120-60, inComponent: 0, animated: false)
+        pickerBPM.transform = CGAffineTransform(rotationAngle: -90 * (.pi/180))
+        pickerBPM.frame = CGRect(x: -100, y: 93, width: view.frame.width+200, height: 100)
     }
     
     // MARK: - IBActions
@@ -116,29 +118,6 @@ class MetronomeViewController: UIViewController {
         
     }
     
-    @IBAction func stepperChangedBPM(_ sender: UIStepper) {
-        BPM = sender.value
-        
-        fieldBPM.text = "\(Int(BPM))"
-    }
-    
-    @IBAction func fieldChangedBPM(_ sender: UITextField) {
-        
-        var bpm = Int(sender.text!) ?? Int(BPM)
-        
-        if bpm < 60 {
-            bpm = 60
-            fieldBPM.text = "60"
-        } else if bpm > 240 {
-            bpm = 240
-            fieldBPM.text = "240"
-        }
-        
-        BPM = Double(bpm)
-        
-        stepperBPM.value = timer.bpm
-    }
-    
     @IBAction func rhythmButtonPressed(_ sender: UIButton) {
         // some
     }
@@ -149,9 +128,44 @@ class MetronomeViewController: UIViewController {
     
 }
 
-
+extension MetronomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return (240-60+1)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let r = CGRect(x: 0, y: 0, width: 50, height: 50)
+        let v = UIView(frame: r)
+        let l = UILabel(frame: r)
+        l.text = "\(row + 60)"
+        l.textAlignment = .center;
+        l.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
+        
+        v.addSubview(l)
+        
+        return v
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        isOn = false
+        BPM = Double(row + 60)
+    }
+    
+}
 
 // MARK: - BPMTimerDelegate
+
 extension MetronomeViewController: BPMTimerDelegate {
     
     func bpmTimerTicked() {

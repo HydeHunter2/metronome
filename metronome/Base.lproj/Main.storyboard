@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="geu-L7-esf">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="geu-L7-esf">
                                 <rect key="frame" x="16" y="16" width="343" height="586"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="METRONOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mn-3q-EPG">
@@ -24,38 +25,24 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQv-07-AGs">
-                                        <rect key="frame" x="0.0" y="124" width="343" height="76.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7sb-o9-FoB">
+                                        <rect key="frame" x="11.5" y="48" width="320" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="3Qm-aW-aBr"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="CYu-QE-CJ0">
-                                        <rect key="frame" x="0.0" y="284.5" width="343" height="34"/>
+                                        <rect key="frame" x="0.0" y="156" width="343" height="100"/>
                                         <subviews>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minimumValue="60" maximumValue="240" translatesAutoresizingMaskIntoConstraints="NO" id="Xlq-bo-GSS">
-                                                <rect key="frame" x="0.0" y="0.0" width="53" height="34"/>
-                                                <connections>
-                                                    <action selector="stepperChangedBPM:" destination="BYZ-38-t0r" eventType="valueChanged" id="tXz-pr-Rz0"/>
-                                                </connections>
-                                            </stepper>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="120" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-l0-REf">
-                                                <rect key="frame" x="97" y="0.0" width="52.5" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="fieldChangedBPM:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Nvj-o3-fCv"/>
-                                                </connections>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tl6-pg-dUo">
-                                                <rect key="frame" x="193.5" y="0.0" width="53" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="100"/>
                                                 <state key="normal" title="double"/>
                                                 <connections>
                                                     <action selector="doubleButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0l-a5-bfb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bE-8X-MkD">
-                                                <rect key="frame" x="290.5" y="0.0" width="52.5" height="34"/>
+                                                <rect key="frame" x="193.5" y="0.0" width="149.5" height="100"/>
                                                 <state key="normal" title="Tap"/>
                                                 <connections>
                                                     <action selector="rhythmButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5dK-hw-NWX"/>
@@ -63,12 +50,11 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="bhG-l0-REf" firstAttribute="top" secondItem="CYu-QE-CJ0" secondAttribute="top" id="BWd-YJ-Nps"/>
-                                            <constraint firstAttribute="bottom" secondItem="bhG-l0-REf" secondAttribute="bottom" id="zg2-UP-67h"/>
+                                            <constraint firstAttribute="height" constant="100" id="NRK-nV-C9y"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7v-uS-dB0">
-                                        <rect key="frame" x="80" y="404" width="183.5" height="180"/>
+                                        <rect key="frame" x="10.5" y="265.5" width="322" height="318.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="y7v-uS-dB0" secondAttribute="height" multiplier="1:1" id="qbu-zD-pMN"/>
                                         </constraints>
@@ -83,12 +69,14 @@
                                     <constraint firstItem="0Mn-3q-EPG" firstAttribute="leading" secondItem="geu-L7-esf" secondAttribute="leading" id="5Kz-SY-NnE"/>
                                     <constraint firstItem="0Mn-3q-EPG" firstAttribute="top" secondItem="geu-L7-esf" secondAttribute="top" id="9OQ-sO-J0m"/>
                                     <constraint firstAttribute="trailing" secondItem="0Mn-3q-EPG" secondAttribute="trailing" id="AhM-Oe-1Cr"/>
-                                    <constraint firstItem="hQv-07-AGs" firstAttribute="leading" secondItem="geu-L7-esf" secondAttribute="leading" id="adf-Bf-aIl"/>
-                                    <constraint firstAttribute="trailing" secondItem="hQv-07-AGs" secondAttribute="trailing" id="py7-s3-Z88"/>
                                     <constraint firstItem="CYu-QE-CJ0" firstAttribute="leading" secondItem="geu-L7-esf" secondAttribute="leading" id="sIp-pM-ONa"/>
                                     <constraint firstAttribute="trailing" secondItem="CYu-QE-CJ0" secondAttribute="trailing" id="yEx-CP-7KL"/>
                                 </constraints>
                             </stackView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-IV-QeZ">
+                                <rect key="frame" x="27" y="93" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -101,10 +89,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Metronome" image="repeat" catalog="system" id="1SM-7c-zDH"/>
                     <connections>
-                        <outlet property="counter" destination="hQv-07-AGs" id="50E-zf-LcE"/>
-                        <outlet property="fieldBPM" destination="bhG-l0-REf" id="RI1-lA-4AW"/>
+                        <outlet property="pickerBPM" destination="dpT-IV-QeZ" id="aX6-GR-nq4"/>
                         <outlet property="startButton" destination="y7v-uS-dB0" id="h9O-Tg-9nV"/>
-                        <outlet property="stepperBPM" destination="Xlq-bo-GSS" id="Mjm-c4-lzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
