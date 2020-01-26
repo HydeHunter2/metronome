@@ -23,7 +23,14 @@ class MetronomeViewController: UIViewController {
             timer.bpm / (isDoubleTime ? 2 : 1)
         }
         set {
-            timer.bpm = newValue * (isDoubleTime ? 2 : 1)
+            
+            if newValue > 240 {
+                timer.bpm = 240 * (isDoubleTime ? 2 : 1)
+            } else if newValue < 60 {
+                timer.bpm = 60 * (isDoubleTime ? 2 : 1)
+            } else {
+                timer.bpm = newValue * (isDoubleTime ? 2 : 1)
+            }
         }
     }
     
@@ -78,6 +85,7 @@ class MetronomeViewController: UIViewController {
     
     private var players: [AVAudioPlayer] = []
     private var timer = BPMTimer(bpm: 120.0)
+    private var tapTempo = TapTempo()
     private var isDoubleTime = false
     private var tickCounter = -1
     
@@ -94,6 +102,7 @@ class MetronomeViewController: UIViewController {
     
     private func setupDelegates() {
         timer.delegate = self
+        tapTempo.delegate = self
         pickerBPM.delegate = self
         pickerBPM.dataSource = self
     }
@@ -119,11 +128,105 @@ class MetronomeViewController: UIViewController {
     }
     
     @IBAction func rhythmButtonPressed(_ sender: UIButton) {
-        // some
+        UIDevice.vibrate(heavy: false)
+        tapTempo.tap()
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         isOn = !isOn
+    }
+    
+}
+
+struct Tap {
+    var time: Double
+}
+
+class TapTempo {
+    
+    private let minTaps = 3
+    private let maxTaps = 6
+    private let discardTimeout = 1.5
+    private var taps = [Tap]()
+    
+    var delegate: TapTempoDelegate?
+    
+    func tap() {
+        taps.append(Tap(time: CACurrentMediaTime()))
+        
+        if taps.count < 2 { return }
+        
+        if (taps[taps.count-1].time - taps[taps.count-2].time >= discardTimeout) {
+            taps = [taps[taps.count-1]]
+        }
+        
+        if taps.count < minTaps { return }
+        
+        if taps.count > maxTaps { taps.remove(at: 0) }
+        
+        var timeIntervals = [Double]()
+        
+        for i in 1..<taps.count {
+            timeIntervals.append(taps[i].time - taps[i - 1].time)
+        }
+        
+        let bpm = 60.0 / (timeIntervals.reduce(0, +) / Double(timeIntervals.count))
+        
+        delegate?.BPMChanged(to: bpm)
+    }
+}
+
+protocol TapTempoDelegate {
+    func BPMChanged(to bpm: Double)
+}
+
+// MARK: - TapTempoDelegate
+
+extension MetronomeViewController: TapTempoDelegate {
+    
+    func BPMChanged(to bpm: Double) {
+        isOn = false
+        BPM = bpm
+        
+        pickerBPM.selectRow(Int(BPM - 60), inComponent: 0, animated: true)
+    }
+    
+}
+
+// MARK: - BPMTimerDelegate
+
+extension MetronomeViewController: BPMTimerDelegate {
+    
+    func bpmTimerTicked() {
+        
+        players.removeAll { !$0.isPlaying }
+            
+        tickCounter += 1
+            
+        if tickCounter >= beats.count {
+            tickCounter = 0
+        }
+        
+        let data: [Data?] = beats[tickCounter] + notes[tickCounter]
+        
+        for i in 0..<data.count {
+            
+            guard let name = data[i]?.name(),
+                  let player = AVAudioPlayer.createPlayerFromFile(withName: name)
+            else {
+                continue
+            }
+            
+            players.append(player)
+        }
+        
+        if players.isEmpty { return }
+        
+        let time = players[0].deviceCurrentTime + timer.tickDuration * 7
+
+        for player in players {
+            player.play(atTime: time)
+        }
     }
     
 }
@@ -164,56 +267,6 @@ extension MetronomeViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     
 }
 
-// MARK: - BPMTimerDelegate
-
-extension MetronomeViewController: BPMTimerDelegate {
-    
-    func bpmTimerTicked() {
-        
-        players.removeAll { !$0.isPlaying }
-            
-        tickCounter += 1
-            
-        if tickCounter >= beats.count {
-            tickCounter = 0
-        }
-        
-        //counter.text = "\(self.tickCounter + 1)"
-        
-        let data: [Data?] = beats[tickCounter] + notes[tickCounter]
-        
-        for i in 0..<data.count {
-            
-            guard let name = data[i]?.name(),
-                  let player = AVAudioPlayer.createPlayerFromFile(withName: name)
-            else {
-                continue
-            }
-            
-            players.append(player)
-        }
-        
-        if players.isEmpty { return }
-        
-        let time = players[0].deviceCurrentTime + timer.tickDuration * 7
-
-        for player in players {
-            player.play(atTime: time)
-        }
-    }
-    
-}
-
-// MARK: - UITextFieldDelegate
-extension MetronomeViewController: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
-}
-
 extension AVAudioPlayer {
     
     static func createPlayerFromFile(withName name: String) -> AVAudioPlayer? {
@@ -229,4 +282,21 @@ extension AVAudioPlayer {
         
     }
     
+}
+
+extension UIDevice {
+    static func vibrate(heavy: Bool) {
+        if heavy {
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        } else {
+            if #available(iOS 13.0, *) {
+                let generator = UIImpactFeedbackGenerator(style: .soft)
+                generator.impactOccurred()
+            } else {
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.impactOccurred()
+            }
+        }
+    }
 }
