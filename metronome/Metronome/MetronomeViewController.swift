@@ -59,7 +59,6 @@ class MetronomeViewController: UIViewController {
                 UIApplication.shared.isIdleTimerDisabled = false
                 
                 timer.stop()
-                tickCounter = 0
                 players = []
             }
         }
@@ -96,6 +95,28 @@ class MetronomeViewController: UIViewController {
         
         setupDelegates()
         setupUI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Settings" {
+            if let SettingsVC = segue.destination as? SettingsViewController {
+                isOn = false
+                SettingsVC.presetToSave = Preset(title: "None", beats: beats, notes: notes, BPM: BPM)
+            }
+        }
+    }
+    
+    @IBAction func getSettings(_ unwindSegue: UIStoryboardSegue) {
+        
+        guard let SettingsVC = unwindSegue.source as? SettingsViewController,
+              let preset = SettingsVC.presetToUnwind
+        else{ return }
+        
+        beats = preset.beats
+        notes = preset.notes
+        BPM = preset.BPM
+        
+        pickerBPM.selectRow(Int(BPM - 60), inComponent: 0, animated: true)
     }
     
     // MARK: - Private Methods

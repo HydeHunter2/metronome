@@ -26,15 +26,16 @@ class MetronomeTabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let metronomeTab = tabBar.items?[indexOfMetronomeTab]
         let beatTab = tabBar.items?[indexOfBeatTab]
-        guard let metronomeVC = viewControllers?[indexOfMetronomeTab] as? MetronomeViewController else { return }
-        guard let BeatVC = viewControllers?[indexOfBeatTab] as? BeatViewController else { return }
-        guard let NoteVC = viewControllers?[indexOfNotesTab] as? BackingTrackTableViewController else { return }
+        let noteTab = tabBar.items?[indexOfNotesTab]
         
-        if item != metronomeTab {
-            metronomeVC.isOn = false
-        }
+        guard let metronomeVC = viewControllers?[indexOfMetronomeTab] as? MetronomeViewController,
+              let BeatVC = viewControllers?[indexOfBeatTab] as? BeatViewController,
+              let NoteVC = viewControllers?[indexOfNotesTab] as? BackingTrackTableViewController,
+              let preiousVC = selectedViewController
+            else { return }
         
         if item != beatTab {
+            
             var beats: Int { get { BeatVC.data.count } }
             var notes: Int { get { NoteVC.data.count } }
             
@@ -47,8 +48,21 @@ class MetronomeTabBarController: UITabBarController {
             NoteVC.tableView?.reloadData()
         }
         
-        metronomeVC.beats = BeatVC.data as! [[Instrument?]]
-        metronomeVC.notes = NoteVC.data as! [[Note?]]
+        if item != metronomeTab && preiousVC == metronomeVC {
+            metronomeVC.isOn = false
+            
+            BeatVC.data = metronomeVC.beats
+            NoteVC.data = metronomeVC.notes
+            
+            BeatVC.tableView?.reloadData()
+            NoteVC.tableView?.reloadData()
+            
+        }
+        
+        if item == metronomeTab {
+            metronomeVC.beats = BeatVC.data as! [[Instrument?]]
+            metronomeVC.notes = NoteVC.data as! [[Note?]]
+        }
         
     }
 }

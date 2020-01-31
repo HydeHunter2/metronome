@@ -28,6 +28,7 @@
 		0AA6FEFA23C908A7008757DA /* metronomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FEF923C908A7008757DA /* metronomeUITests.swift */; };
 		0AB7F79023D873C700A9F62A /* SelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7F78E23D873C700A9F62A /* SelectionCollectionViewController.swift */; };
 		0AB7F79123D873C700A9F62A /* SelectionCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7F78F23D873C700A9F62A /* SelectionCollectionViewController.xib */; };
+		0ABEF93E23DF7949004D24CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */; };
 		0AC68B2123CF86410086ADF9 /* MetronomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */; };
 		0AC68B2323CF897B0086ADF9 /* BPMTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */; };
 		0AD435FD23D3AB9100BD0701 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD435FC23D3AB9100BD0701 /* Instrument.swift */; };
@@ -95,6 +96,7 @@
 		0AA6FEFB23C908A7008757DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AB7F78E23D873C700A9F62A /* SelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		0AB7F78F23D873C700A9F62A /* SelectionCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCollectionViewController.xib; sourceTree = "<group>"; };
+		0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeTabBarController.swift; sourceTree = "<group>"; };
 		0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTimer.swift; sourceTree = "<group>"; };
 		0AD435FC23D3AB9100BD0701 /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */,
 				0AA6FEDD23C908A3008757DA /* Main.storyboard */,
 				0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */,
+				0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */,
 				0A28439723D221E20019B50F /* BeatViewController.swift */,
 				0A05827223D79173002F22C8 /* BackingTrackViewController.swift */,
 				0AD435F523D39E9000BD0701 /* AdditionalFiles */,
@@ -446,6 +449,7 @@
 				0A9F10BD23D8025D00AF7B95 /* EditableTableViewCell.swift in Sources */,
 				0AA6FEDA23C908A3008757DA /* SceneDelegate.swift in Sources */,
 				0A3AFE1E23DB6646007293A6 /* EditableTable.swift in Sources */,
+				0ABEF93E23DF7949004D24CE /* SettingsViewController.swift in Sources */,
 				0AC68B2123CF86410086ADF9 /* MetronomeTabBarController.swift in Sources */,
 				0A0A7FB223D8BA7D00EE5994 /* SelectionCollectionViewCell.swift in Sources */,
 				0AFF14CF23CE117100F0DA9C /* HeaderView.swift in Sources */,
