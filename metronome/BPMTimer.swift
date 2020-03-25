@@ -8,15 +8,15 @@
 
 import Foundation
 
-protocol BPMTimerDelegate: class {
-    func bpmTimerTicked()
-}
+// MARK: - Main !REFACTORING
 
 class BPMTimer {
 
     // MARK: - Properties
 
-    weak var delegate: BPMTimerDelegate? // The class's delegate, to handle the results of ticks
+    weak var delegate: MetronomeDelegate? // The class's delegate, to handle the results of ticks
+    
+    var paused: Bool
     var bpm: Double { // The speed of the metronome ticks in BPM (Beats Per Minute)
         didSet {
             changeBPM() // Respond to any changes in BPM, so that the timer intervals change accordingly
@@ -44,7 +44,6 @@ class BPMTimer {
 
     private var timer: DispatchSourceTimer!
     private lazy var timerQueue = DispatchQueue.global(qos: .utility) // The Grand Central Dispatch queue to be used for running the timer. Leverages a global queue with the Quality of Service 'Utility', which is for long-running tasks, typically with user-visible progress. See here for more info: https://www.raywenderlich.com/5370-grand-central-dispatch-tutorial-for-swift-4-part-1-2
-    private var paused: Bool
     private var lastTickTimestamp: CFAbsoluteTime
     private var tickCheckInterval: Double {
         return tickDuration / 50 // Run checks many times within each tick duration, to ensure accuracy
@@ -58,9 +57,8 @@ class BPMTimer {
 
     // MARK: - Initialization
 
-    init(bpm: Double) {
-
-        self.bpm = bpm
+    init(bpm: Int) {
+        self.bpm = Double(bpm)
         self.paused = true
         self.lastTickTimestamp = CFAbsoluteTimeGetCurrent()
         self.timer = createNewTimer()
@@ -69,18 +67,18 @@ class BPMTimer {
     // MARK: - Methods
 
     func start() {
-
         if paused {
             paused = false
-            lastTickTimestamp = CFAbsoluteTimeGetCurrent()
-            timer.resume() // A crash will occur if calling resume on an already resumed timer. The paused property is used to guard against this. See here for more info: https://medium.com/over-engineering/a-background-repeating-timer-in-swift-412cecfd2ef9
+            DispatchQueue.main.async {
+                self.lastTickTimestamp = CFAbsoluteTimeGetCurrent()
+                self.timer.resume() // A crash will occur if calling resume on an already resumed timer. The paused property is used to guard against this. See here for more info: https://medium.com/over-engineering/a-background-repeating-timer-in-swift-412cecfd2ef9
+            }
         } else {
             // Already running, so do nothing
         }
     }
 
     func stop() {
-
         if !paused {
             paused = true
             timer.suspend()
@@ -138,12 +136,10 @@ class BPMTimer {
     }
 
     private func tick() {
-        
 
         lastTickTimestamp = CFAbsoluteTimeGetCurrent()
         DispatchQueue.main.sync { // Calls the delegate from the application's main thread, because it keeps the separate threading within this class, and otherwise, it can cause errors (e.g. 'Main Thread Checker: UI API called on a background thread', if the delegate tries to update the UI). See here for more info: https://stackoverflow.com/questions/45081731/uiapplication-delegate-must-be-called-from-main-thread-only
-            delegate?.bpmTimerTicked() // Have the delegate respond accordingly
-
+            self.delegate?.ticked() // Have the delegate respond accordingly
         }
     }
 

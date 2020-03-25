@@ -7,31 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A05827323D79173002F22C8 /* BackingTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05827223D79173002F22C8 /* BackingTrackViewController.swift */; };
-		0A0A7FB223D8BA7D00EE5994 /* SelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A7FB023D8BA7D00EE5994 /* SelectionCollectionViewCell.swift */; };
-		0A0A7FB323D8BA7D00EE5994 /* SelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A7FB123D8BA7D00EE5994 /* SelectionCollectionViewCell.xib */; };
-		0A28439823D221E20019B50F /* BeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28439723D221E20019B50F /* BeatViewController.swift */; };
-		0A28439B23D225510019B50F /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28439923D225510019B50F /* FooterView.swift */; };
+		0A02B0862428C4B600F886A5 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02B0852428C4B600F886A5 /* SettingsPresenter.swift */; };
+		0A02B0882428C4C600F886A5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02B0872428C4C600F886A5 /* Settings.swift */; };
+		0A05827323D79173002F22C8 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05827223D79173002F22C8 /* NoteTableViewController.swift */; };
+		0A0A7FB223D8BA7D00EE5994 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A7FB023D8BA7D00EE5994 /* CollectionCell.swift */; };
+		0A0A7FB323D8BA7D00EE5994 /* CollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A7FB123D8BA7D00EE5994 /* CollectionCellView.xib */; };
+		0A28439B23D225510019B50F /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28439923D225510019B50F /* Footer.swift */; };
 		0A28439C23D225510019B50F /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A28439A23D225510019B50F /* FooterView.xib */; };
-		0A3AFE1E23DB6646007293A6 /* EditableTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFE1D23DB6646007293A6 /* EditableTable.swift */; };
+		0A3AFE1E23DB6646007293A6 /* EditableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFE1D23DB6646007293A6 /* EditableTableViewController.swift */; };
 		0A3AFE2423DB6F0C007293A6 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFE2323DB6F0C007293A6 /* Note.swift */; };
 		0A3AFE2623DB6F2D007293A6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFE2523DB6F2D007293A6 /* Data.swift */; };
-		0A9F10BD23D8025D00AF7B95 /* EditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F10BB23D8025D00AF7B95 /* EditableTableViewCell.swift */; };
-		0A9F10BE23D8025D00AF7B95 /* EditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F10BC23D8025D00AF7B95 /* EditableTableViewCell.xib */; };
+		0A8758172427428200037222 /* MetronomeModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8758162427428200037222 /* MetronomeModelTest.swift */; };
+		0A87581924276E3000037222 /* EditableTablePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87581824276E2F00037222 /* EditableTablePresenterTest.swift */; };
+		0A9F10BD23D8025D00AF7B95 /* EditableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F10BB23D8025D00AF7B95 /* EditableTableCell.swift */; };
+		0A9F10BE23D8025D00AF7B95 /* EditableTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F10BC23D8025D00AF7B95 /* EditableTableCellView.xib */; };
+		0AA0891D2423397A0071CA7C /* NoteTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0891C2423397A0071CA7C /* NoteTablePresenter.swift */; };
+		0AA0892024233B650071CA7C /* InstrumentTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0891F24233B650071CA7C /* InstrumentTablePresenter.swift */; };
+		0AA08922242340C00071CA7C /* InstrumentTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA08921242340C00071CA7C /* InstrumentTable.swift */; };
+		0AA08924242341410071CA7C /* NoteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA08923242341410071CA7C /* NoteTable.swift */; };
+		0AA08926242344A30071CA7C /* InstrumentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA08925242344A30071CA7C /* InstrumentTableView.xib */; };
+		0AA089282423452E0071CA7C /* NoteTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA089272423452E0071CA7C /* NoteTableView.xib */; };
 		0AA6FED823C908A3008757DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FED723C908A3008757DA /* AppDelegate.swift */; };
 		0AA6FEDA23C908A3008757DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FED923C908A3008757DA /* SceneDelegate.swift */; };
 		0AA6FEDC23C908A3008757DA /* MetronomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */; };
-		0AA6FEDF23C908A3008757DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6FEDD23C908A3008757DA /* Main.storyboard */; };
 		0AA6FEE123C908A7008757DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6FEE023C908A7008757DA /* Assets.xcassets */; };
 		0AA6FEE423C908A7008757DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6FEE223C908A7008757DA /* LaunchScreen.storyboard */; };
-		0AA6FEEF23C908A7008757DA /* metronomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FEEE23C908A7008757DA /* metronomeTests.swift */; };
-		0AA6FEFA23C908A7008757DA /* metronomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6FEF923C908A7008757DA /* metronomeUITests.swift */; };
-		0AB7F79023D873C700A9F62A /* SelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7F78E23D873C700A9F62A /* SelectionCollectionViewController.swift */; };
-		0AB7F79123D873C700A9F62A /* SelectionCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7F78F23D873C700A9F62A /* SelectionCollectionViewController.xib */; };
+		0AA9E6FB24262B6400A93774 /* MetronomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA9E6FA24262B6400A93774 /* MetronomePresenterTest.swift */; };
+		0AAC5C5624216D890056DAE5 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C5524216D890056DAE5 /* Metronome.swift */; };
+		0AAC5C58242172CB0056DAE5 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C57242172CB0056DAE5 /* Builder.swift */; };
+		0AAC5C5A2421766F0056DAE5 /* MetronomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C592421766F0056DAE5 /* MetronomePresenter.swift */; };
+		0AAC5C5C242179F20056DAE5 /* MetronomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAC5C5B242179F20056DAE5 /* MetronomeView.xib */; };
+		0AAC5C6B242236400056DAE5 /* TempoCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C6A242236400056DAE5 /* TempoCreator.swift */; };
+		0AAC5C6D242237B50056DAE5 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C6C242237B50056DAE5 /* SoundManager.swift */; };
+		0AAC5C7724223D9B0056DAE5 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C7624223D9B0056DAE5 /* GlobalSettings.swift */; };
+		0AAC5C79242255160056DAE5 /* EditableTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C78242255160056DAE5 /* EditableTablePresenter.swift */; };
+		0AAC5C7B242256110056DAE5 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C7A242256110056DAE5 /* Table.swift */; };
+		0AAC5C8124226DA80056DAE5 /* CollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C8024226DA80056DAE5 /* CollectionPresenter.swift */; };
+		0AAC5C8324226E9F0056DAE5 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5C8224226E9F0056DAE5 /* Collection.swift */; };
+		0AB708EF242B40060029EEE5 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB708EE242B40060029EEE5 /* SettingsView.xib */; };
+		0AB708F2242B71090029EEE5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB708F0242B71090029EEE5 /* SettingsCell.swift */; };
+		0AB708F3242B71090029EEE5 /* SettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB708F1242B71090029EEE5 /* SettingsCellView.xib */; };
+		0AB708F5242B98780029EEE5 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB708F4242B98780029EEE5 /* Preset.swift */; };
+		0AB708F7242BC79E0029EEE5 /* SettingsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB708F6242BC79E0029EEE5 /* SettingsPresenterTest.swift */; };
+		0AB708FD242BE6BE0029EEE5 /* MainTabBarPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB708FC242BE6BE0029EEE5 /* MainTabBarPresenterTest.swift */; };
+		0AB7F79023D873C700A9F62A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7F78E23D873C700A9F62A /* CollectionViewController.swift */; };
+		0AB7F79123D873C700A9F62A /* CollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7F78F23D873C700A9F62A /* CollectionView.xib */; };
+		0ABB8F6824288D1C00B6AEC6 /* CollectionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB8F6724288D1C00B6AEC6 /* CollectionPresenterTest.swift */; };
 		0ABEF93E23DF7949004D24CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */; };
-		0AC68B2123CF86410086ADF9 /* MetronomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */; };
+		0ABF01DF2429E9F600D7663E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABF01DE2429E9F600D7663E /* Storage.swift */; };
+		0AC68B2123CF86410086ADF9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2023CF86410086ADF9 /* MainTabBarController.swift */; };
 		0AC68B2323CF897B0086ADF9 /* BPMTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */; };
 		0AD435FD23D3AB9100BD0701 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD435FC23D3AB9100BD0701 /* Instrument.swift */; };
+		0ADBDBFE24254F0D0049E485 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBDBFD24254F0D0049E485 /* MainTabBarPresenter.swift */; };
 		0AE03E5323DA1E10007DF4FA /* F.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E4723DA1E0F007DF4FA /* F.wav */; };
 		0AE03E5423DA1E10007DF4FA /* A.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E4823DA1E0F007DF4FA /* A.wav */; };
 		0AE03E5523DA1E10007DF4FA /* C.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E4923DA1E0F007DF4FA /* C.wav */; };
@@ -44,7 +71,8 @@
 		0AE03E5C23DA1E10007DF4FA /* D.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E5023DA1E10007DF4FA /* D.wav */; };
 		0AE03E5D23DA1E10007DF4FA /* B.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E5123DA1E10007DF4FA /* B.wav */; };
 		0AE03E5E23DA1E10007DF4FA /* E.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AE03E5223DA1E10007DF4FA /* E.wav */; };
-		0AFF14CF23CE117100F0DA9C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF14CD23CE117100F0DA9C /* HeaderView.swift */; };
+		0AECD32F242C1845004CF80B /* InstrumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECD32E242C1845004CF80B /* InstrumentTableViewController.swift */; };
+		0AFF14CF23CE117100F0DA9C /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF14CD23CE117100F0DA9C /* Header.swift */; };
 		0AFF14D023CE117100F0DA9C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF14CE23CE117100F0DA9C /* HeaderView.xib */; };
 		0AFF14DF23CE48C400F0DA9C /* Hi-hat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF14DE23CE48C400F0DA9C /* Hi-hat.wav */; };
 		0AFF14E123CE491100F0DA9C /* Snare.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF14E023CE491100F0DA9C /* Snare.wav */; };
@@ -52,14 +80,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0AA6FEEB23C908A7008757DA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0AA6FECC23C908A2008757DA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0AA6FED323C908A2008757DA;
-			remoteInfo = metronome;
-		};
-		0AA6FEF623C908A7008757DA /* PBXContainerItemProxy */ = {
+		0AA9E6F524262A8C00A93774 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AA6FECC23C908A2008757DA /* Project object */;
 			proxyType = 1;
@@ -69,37 +90,62 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A05827223D79173002F22C8 /* BackingTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingTrackViewController.swift; sourceTree = "<group>"; };
-		0A0A7FB023D8BA7D00EE5994 /* SelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewCell.swift; sourceTree = "<group>"; };
-		0A0A7FB123D8BA7D00EE5994 /* SelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCollectionViewCell.xib; sourceTree = "<group>"; };
-		0A28439723D221E20019B50F /* BeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatViewController.swift; sourceTree = "<group>"; };
-		0A28439923D225510019B50F /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		0A02B0852428C4B600F886A5 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		0A02B0872428C4C600F886A5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0A05827223D79173002F22C8 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		0A0A7FB023D8BA7D00EE5994 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		0A0A7FB123D8BA7D00EE5994 /* CollectionCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCellView.xib; sourceTree = "<group>"; };
+		0A28439923D225510019B50F /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		0A28439A23D225510019B50F /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
-		0A3AFE1D23DB6646007293A6 /* EditableTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTable.swift; sourceTree = "<group>"; };
+		0A3AFE1D23DB6646007293A6 /* EditableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTableViewController.swift; sourceTree = "<group>"; };
 		0A3AFE2323DB6F0C007293A6 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0A3AFE2523DB6F2D007293A6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		0A9F10BB23D8025D00AF7B95 /* EditableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTableViewCell.swift; sourceTree = "<group>"; };
-		0A9F10BC23D8025D00AF7B95 /* EditableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableTableViewCell.xib; sourceTree = "<group>"; };
+		0A8758162427428200037222 /* MetronomeModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeModelTest.swift; sourceTree = "<group>"; };
+		0A87581824276E2F00037222 /* EditableTablePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTablePresenterTest.swift; sourceTree = "<group>"; };
+		0A9F10BB23D8025D00AF7B95 /* EditableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTableCell.swift; sourceTree = "<group>"; };
+		0A9F10BC23D8025D00AF7B95 /* EditableTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableTableCellView.xib; sourceTree = "<group>"; };
+		0AA0891C2423397A0071CA7C /* NoteTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTablePresenter.swift; sourceTree = "<group>"; };
+		0AA0891F24233B650071CA7C /* InstrumentTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTablePresenter.swift; sourceTree = "<group>"; };
+		0AA08921242340C00071CA7C /* InstrumentTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTable.swift; sourceTree = "<group>"; };
+		0AA08923242341410071CA7C /* NoteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTable.swift; sourceTree = "<group>"; };
+		0AA08925242344A30071CA7C /* InstrumentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstrumentTableView.xib; sourceTree = "<group>"; };
+		0AA089272423452E0071CA7C /* NoteTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableView.xib; sourceTree = "<group>"; };
 		0AA6FED423C908A2008757DA /* metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA6FED723C908A3008757DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA6FED923C908A3008757DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetronomeViewController.swift; path = Metronome/MetronomeViewController.swift; sourceTree = "<group>"; };
-		0AA6FEDE23C908A3008757DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeViewController.swift; sourceTree = "<group>"; };
 		0AA6FEE023C908A7008757DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA6FEE323C908A7008757DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA6FEE523C908A7008757DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AA6FEEA23C908A7008757DA /* metronomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metronomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AA6FEEE23C908A7008757DA /* metronomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metronomeTests.swift; sourceTree = "<group>"; };
-		0AA6FEF023C908A7008757DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AA6FEF523C908A7008757DA /* metronomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metronomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AA6FEF923C908A7008757DA /* metronomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metronomeUITests.swift; sourceTree = "<group>"; };
-		0AA6FEFB23C908A7008757DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AB7F78E23D873C700A9F62A /* SelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewController.swift; sourceTree = "<group>"; };
-		0AB7F78F23D873C700A9F62A /* SelectionCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCollectionViewController.xib; sourceTree = "<group>"; };
+		0AA9E6F024262A8C00A93774 /* metronomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metronomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA9E6F424262A8C00A93774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AA9E6FA24262B6400A93774 /* MetronomePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomePresenterTest.swift; sourceTree = "<group>"; };
+		0AAC5C5524216D890056DAE5 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		0AAC5C57242172CB0056DAE5 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		0AAC5C592421766F0056DAE5 /* MetronomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomePresenter.swift; sourceTree = "<group>"; };
+		0AAC5C5B242179F20056DAE5 /* MetronomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeView.xib; sourceTree = "<group>"; };
+		0AAC5C6A242236400056DAE5 /* TempoCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempoCreator.swift; sourceTree = "<group>"; };
+		0AAC5C6C242237B50056DAE5 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		0AAC5C7624223D9B0056DAE5 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
+		0AAC5C78242255160056DAE5 /* EditableTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTablePresenter.swift; sourceTree = "<group>"; };
+		0AAC5C7A242256110056DAE5 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		0AAC5C8024226DA80056DAE5 /* CollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPresenter.swift; sourceTree = "<group>"; };
+		0AAC5C8224226E9F0056DAE5 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		0AB708EE242B40060029EEE5 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		0AB708F0242B71090029EEE5 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		0AB708F1242B71090029EEE5 /* SettingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCellView.xib; sourceTree = "<group>"; };
+		0AB708F4242B98780029EEE5 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		0AB708F6242BC79E0029EEE5 /* SettingsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTest.swift; sourceTree = "<group>"; };
+		0AB708FC242BE6BE0029EEE5 /* MainTabBarPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenterTest.swift; sourceTree = "<group>"; };
+		0AB7F78E23D873C700A9F62A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		0AB7F78F23D873C700A9F62A /* CollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionView.xib; sourceTree = "<group>"; };
+		0ABB8F6724288D1C00B6AEC6 /* CollectionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPresenterTest.swift; sourceTree = "<group>"; };
 		0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeTabBarController.swift; sourceTree = "<group>"; };
+		0ABF01DE2429E9F600D7663E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		0AC68B2023CF86410086ADF9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTimer.swift; sourceTree = "<group>"; };
 		0AD435FC23D3AB9100BD0701 /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
+		0ADBDBFD24254F0D0049E485 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		0AE03E4723DA1E0F007DF4FA /* F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = F.wav; sourceTree = "<group>"; };
 		0AE03E4823DA1E0F007DF4FA /* A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = A.wav; sourceTree = "<group>"; };
 		0AE03E4923DA1E0F007DF4FA /* C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C.wav; sourceTree = "<group>"; };
@@ -112,7 +158,8 @@
 		0AE03E5023DA1E10007DF4FA /* D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D.wav; sourceTree = "<group>"; };
 		0AE03E5123DA1E10007DF4FA /* B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = B.wav; sourceTree = "<group>"; };
 		0AE03E5223DA1E10007DF4FA /* E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = E.wav; sourceTree = "<group>"; };
-		0AFF14CD23CE117100F0DA9C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		0AECD32E242C1845004CF80B /* InstrumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTableViewController.swift; sourceTree = "<group>"; };
+		0AFF14CD23CE117100F0DA9C /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0AFF14CE23CE117100F0DA9C /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		0AFF14DE23CE48C400F0DA9C /* Hi-hat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hi-hat.wav"; sourceTree = "<group>"; };
 		0AFF14E023CE491100F0DA9C /* Snare.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Snare.wav; sourceTree = "<group>"; };
@@ -127,14 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0AA6FEE723C908A7008757DA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0AA6FEF223C908A7008757DA /* Frameworks */ = {
+		0AA9E6ED24262A8C00A93774 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,26 +184,185 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A3AFE2223DB6EB8007293A6 /* Table */ = {
+		0A02B0892428C64B00F886A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A3AFE1D23DB6646007293A6 /* EditableTable.swift */,
-				0A9F10BB23D8025D00AF7B95 /* EditableTableViewCell.swift */,
-				0A9F10BC23D8025D00AF7B95 /* EditableTableViewCell.xib */,
-				0AFF14CD23CE117100F0DA9C /* HeaderView.swift */,
+				0A02B0872428C4C600F886A5 /* Settings.swift */,
+				0AB708F4242B98780029EEE5 /* Preset.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0A02B08A2428C66E00F886A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */,
+				0AB708EE242B40060029EEE5 /* SettingsView.xib */,
+				0AB708F0242B71090029EEE5 /* SettingsCell.swift */,
+				0AB708F1242B71090029EEE5 /* SettingsCellView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0A02B08B2428C67400F886A5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0A02B0852428C4B600F886A5 /* SettingsPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0A3AFE2223DB6EB8007293A6 /* EditableTable */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0892F2423CA030071CA7C /* Model */,
+				0AA089302423CA3C0071CA7C /* View */,
+				0AA089312423CA460071CA7C /* Presenter */,
+			);
+			name = EditableTable;
+			sourceTree = "<group>";
+		};
+		0A8000092426AFF600C340A3 /* TestMetronomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				0A8758162427428200037222 /* MetronomeModelTest.swift */,
+				0AA9E6FA24262B6400A93774 /* MetronomePresenterTest.swift */,
+			);
+			path = TestMetronomeModule;
+			sourceTree = "<group>";
+		};
+		0A87581A24276EDE00037222 /* TestEditableTableModule */ = {
+			isa = PBXGroup;
+			children = (
+				0A87581824276E2F00037222 /* EditableTablePresenterTest.swift */,
+			);
+			path = TestEditableTableModule;
+			sourceTree = "<group>";
+		};
+		0AA0891E24233B250071CA7C /* Instrument */ = {
+			isa = PBXGroup;
+			children = (
+				0AA089292423C9B40071CA7C /* Model */,
+				0AA0892A2423C9C70071CA7C /* View */,
+				0AA0892B2423C9CE0071CA7C /* Presenter */,
+			);
+			name = Instrument;
+			sourceTree = "<group>";
+		};
+		0AA089292423C9B40071CA7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AA08921242340C00071CA7C /* InstrumentTable.swift */,
+				0AD435FC23D3AB9100BD0701 /* Instrument.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0AA0892A2423C9C70071CA7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AECD32E242C1845004CF80B /* InstrumentTableViewController.swift */,
+				0AA08925242344A30071CA7C /* InstrumentTableView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0AA0892B2423C9CE0071CA7C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0891F24233B650071CA7C /* InstrumentTablePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0AA0892C2423C9DA0071CA7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AA08923242341410071CA7C /* NoteTable.swift */,
+				0A3AFE2323DB6F0C007293A6 /* Note.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0AA0892D2423C9E00071CA7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A05827223D79173002F22C8 /* NoteTableViewController.swift */,
+				0AA089272423452E0071CA7C /* NoteTableView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0AA0892E2423C9E70071CA7C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0891C2423397A0071CA7C /* NoteTablePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0AA0892F2423CA030071CA7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C7A242256110056DAE5 /* Table.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0AA089302423CA3C0071CA7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A3AFE1D23DB6646007293A6 /* EditableTableViewController.swift */,
+				0A9F10BB23D8025D00AF7B95 /* EditableTableCell.swift */,
+				0A9F10BC23D8025D00AF7B95 /* EditableTableCellView.xib */,
+				0AFF14CD23CE117100F0DA9C /* Header.swift */,
 				0AFF14CE23CE117100F0DA9C /* HeaderView.xib */,
-				0A28439923D225510019B50F /* FooterView.swift */,
+				0A28439923D225510019B50F /* Footer.swift */,
 				0A28439A23D225510019B50F /* FooterView.xib */,
 			);
-			name = Table;
+			name = View;
+			sourceTree = "<group>";
+		};
+		0AA089312423CA460071CA7C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C78242255160056DAE5 /* EditableTablePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0AA089322423CA620071CA7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C8224226E9F0056DAE5 /* Collection.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0AA089332423CA6B0071CA7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AB7F78E23D873C700A9F62A /* CollectionViewController.swift */,
+				0AB7F78F23D873C700A9F62A /* CollectionView.xib */,
+				0A0A7FB023D8BA7D00EE5994 /* CollectionCell.swift */,
+				0A0A7FB123D8BA7D00EE5994 /* CollectionCellView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0AA089342423CA700071CA7C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C8024226DA80056DAE5 /* CollectionPresenter.swift */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		0AA6FECB23C908A2008757DA = {
 			isa = PBXGroup;
 			children = (
 				0AA6FED623C908A2008757DA /* metronome */,
-				0AA6FEED23C908A7008757DA /* metronomeTests */,
-				0AA6FEF823C908A7008757DA /* metronomeUITests */,
+				0AA9E6F124262A8C00A93774 /* metronomeTests */,
 				0AA6FED523C908A2008757DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -172,8 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA6FED423C908A2008757DA /* metronome.app */,
-				0AA6FEEA23C908A7008757DA /* metronomeTests.xctest */,
-				0AA6FEF523C908A7008757DA /* metronomeUITests.xctest */,
+				0AA9E6F024262A8C00A93774 /* metronomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,46 +379,114 @@
 		0AA6FED623C908A2008757DA /* metronome */ = {
 			isa = PBXGroup;
 			children = (
-				0AC68B2023CF86410086ADF9 /* MetronomeTabBarController.swift */,
-				0AA6FEDD23C908A3008757DA /* Main.storyboard */,
-				0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */,
-				0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */,
-				0A28439723D221E20019B50F /* BeatViewController.swift */,
-				0A05827223D79173002F22C8 /* BackingTrackViewController.swift */,
+				0ADBDBFF242563260049E485 /* MainTabBar */,
+				0AAC5C6E2422382D0056DAE5 /* Metronome */,
+				0AAC5C72242238BB0056DAE5 /* Settings */,
+				0AA0891E24233B250071CA7C /* Instrument */,
+				0AAC5C74242238ED0056DAE5 /* Note */,
 				0AD435F523D39E9000BD0701 /* AdditionalFiles */,
-				0AD435FB23D39F2100BD0701 /* Sounds */,
 			);
 			path = metronome;
 			sourceTree = "<group>";
 		};
-		0AA6FEED23C908A7008757DA /* metronomeTests */ = {
+		0AA9E6F124262A8C00A93774 /* metronomeTests */ = {
 			isa = PBXGroup;
 			children = (
-				0AA6FEEE23C908A7008757DA /* metronomeTests.swift */,
-				0AA6FEF023C908A7008757DA /* Info.plist */,
+				0AECD32D242BE749004CF80B /* TestMainTabBarModule */,
+				0A8000092426AFF600C340A3 /* TestMetronomeModule */,
+				0AB708F8242BC7A60029EEE5 /* TestSettingsModule */,
+				0A87581A24276EDE00037222 /* TestEditableTableModule */,
+				0ABB8F6924288D3800B6AEC6 /* TestCollectionModule */,
+				0AA9E6F424262A8C00A93774 /* Info.plist */,
 			);
 			path = metronomeTests;
 			sourceTree = "<group>";
 		};
-		0AA6FEF823C908A7008757DA /* metronomeUITests */ = {
+		0AAC5C6E2422382D0056DAE5 /* Metronome */ = {
 			isa = PBXGroup;
 			children = (
-				0AA6FEF923C908A7008757DA /* metronomeUITests.swift */,
-				0AA6FEFB23C908A7008757DA /* Info.plist */,
+				0AAC5C6F242238420056DAE5 /* Model */,
+				0AAC5C702422384A0056DAE5 /* View */,
+				0AAC5C71242238530056DAE5 /* Presenter */,
 			);
-			path = metronomeUITests;
+			name = Metronome;
+			sourceTree = "<group>";
+		};
+		0AAC5C6F242238420056DAE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C5524216D890056DAE5 /* Metronome.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0AAC5C702422384A0056DAE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AA6FEDB23C908A3008757DA /* MetronomeViewController.swift */,
+				0AAC5C5B242179F20056DAE5 /* MetronomeView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0AAC5C71242238530056DAE5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC5C592421766F0056DAE5 /* MetronomePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0AAC5C72242238BB0056DAE5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0A02B0892428C64B00F886A5 /* Model */,
+				0A02B08A2428C66E00F886A5 /* View */,
+				0A02B08B2428C67400F886A5 /* Presenter */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		0AAC5C74242238ED0056DAE5 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				0AA0892C2423C9DA0071CA7C /* Model */,
+				0AA0892D2423C9E00071CA7C /* View */,
+				0AA0892E2423C9E70071CA7C /* Presenter */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		0AB708F8242BC7A60029EEE5 /* TestSettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AB708F6242BC79E0029EEE5 /* SettingsPresenterTest.swift */,
+			);
+			path = TestSettingsModule;
+			sourceTree = "<group>";
+		};
+		0ABB8F6924288D3800B6AEC6 /* TestCollectionModule */ = {
+			isa = PBXGroup;
+			children = (
+				0ABB8F6724288D1C00B6AEC6 /* CollectionPresenterTest.swift */,
+			);
+			path = TestCollectionModule;
 			sourceTree = "<group>";
 		};
 		0AD435F523D39E9000BD0701 /* AdditionalFiles */ = {
 			isa = PBXGroup;
 			children = (
 				0AD4360023D3ABC000BD0701 /* System */,
-				0A3AFE2223DB6EB8007293A6 /* Table */,
+				0A3AFE2223DB6EB8007293A6 /* EditableTable */,
 				0AD435F723D39EA900BD0701 /* Collection */,
 				0A3AFE2523DB6F2D007293A6 /* Data.swift */,
-				0A3AFE2323DB6F0C007293A6 /* Note.swift */,
-				0AD435FC23D3AB9100BD0701 /* Instrument.swift */,
 				0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */,
+				0AAC5C6A242236400056DAE5 /* TempoCreator.swift */,
+				0AAC5C6C242237B50056DAE5 /* SoundManager.swift */,
+				0ABF01DE2429E9F600D7663E /* Storage.swift */,
+				0AAC5C57242172CB0056DAE5 /* Builder.swift */,
+				0AAC5C7624223D9B0056DAE5 /* GlobalSettings.swift */,
+				0AD435FB23D39F2100BD0701 /* Sounds */,
 			);
 			name = AdditionalFiles;
 			sourceTree = "<group>";
@@ -228,10 +494,9 @@
 		0AD435F723D39EA900BD0701 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				0AB7F78E23D873C700A9F62A /* SelectionCollectionViewController.swift */,
-				0AB7F78F23D873C700A9F62A /* SelectionCollectionViewController.xib */,
-				0A0A7FB023D8BA7D00EE5994 /* SelectionCollectionViewCell.swift */,
-				0A0A7FB123D8BA7D00EE5994 /* SelectionCollectionViewCell.xib */,
+				0AA089322423CA620071CA7C /* Model */,
+				0AA089332423CA6B0071CA7C /* View */,
+				0AA089342423CA700071CA7C /* Presenter */,
 			);
 			name = Collection;
 			sourceTree = "<group>";
@@ -239,8 +504,8 @@
 		0AD435FB23D39F2100BD0701 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				0AE03E4223DA17F9007DF4FA /* Drums */,
-				0AE03E3F23DA17E5007DF4FA /* Piano */,
+				0AE03E4223DA17F9007DF4FA /* Instruments */,
+				0AE03E3F23DA17E5007DF4FA /* Notes */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -257,7 +522,32 @@
 			name = System;
 			sourceTree = "<group>";
 		};
-		0AE03E3F23DA17E5007DF4FA /* Piano */ = {
+		0ADBDBFF242563260049E485 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0ADBDC01242563350049E485 /* Controller */,
+				0ADBDC002425632E0049E485 /* Presenter */,
+			);
+			name = MainTabBar;
+			sourceTree = "<group>";
+		};
+		0ADBDC002425632E0049E485 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0ADBDBFD24254F0D0049E485 /* MainTabBarPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		0ADBDC01242563350049E485 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0AC68B2023CF86410086ADF9 /* MainTabBarController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0AE03E3F23DA17E5007DF4FA /* Notes */ = {
 			isa = PBXGroup;
 			children = (
 				0AE03E4823DA1E0F007DF4FA /* A.wav */,
@@ -273,17 +563,25 @@
 				0AE03E4D23DA1E10007DF4FA /* G.wav */,
 				0AE03E4B23DA1E0F007DF4FA /* Gb.wav */,
 			);
-			name = Piano;
+			name = Notes;
 			sourceTree = "<group>";
 		};
-		0AE03E4223DA17F9007DF4FA /* Drums */ = {
+		0AE03E4223DA17F9007DF4FA /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
 				0AFF14DE23CE48C400F0DA9C /* Hi-hat.wav */,
 				0AFF14E223CE4B3E00F0DA9C /* Bass.wav */,
 				0AFF14E023CE491100F0DA9C /* Snare.wav */,
 			);
-			name = Drums;
+			name = Instruments;
+			sourceTree = "<group>";
+		};
+		0AECD32D242BE749004CF80B /* TestMainTabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				0AB708FC242BE6BE0029EEE5 /* MainTabBarPresenterTest.swift */,
+			);
+			path = TestMainTabBarModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,41 +604,23 @@
 			productReference = 0AA6FED423C908A2008757DA /* metronome.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0AA6FEE923C908A7008757DA /* metronomeTests */ = {
+		0AA9E6EF24262A8C00A93774 /* metronomeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AA6FF0123C908A7008757DA /* Build configuration list for PBXNativeTarget "metronomeTests" */;
+			buildConfigurationList = 0AA9E6F724262A8C00A93774 /* Build configuration list for PBXNativeTarget "metronomeTests" */;
 			buildPhases = (
-				0AA6FEE623C908A7008757DA /* Sources */,
-				0AA6FEE723C908A7008757DA /* Frameworks */,
-				0AA6FEE823C908A7008757DA /* Resources */,
+				0AA9E6EC24262A8C00A93774 /* Sources */,
+				0AA9E6ED24262A8C00A93774 /* Frameworks */,
+				0AA9E6EE24262A8C00A93774 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0AA6FEEC23C908A7008757DA /* PBXTargetDependency */,
+				0AA9E6F624262A8C00A93774 /* PBXTargetDependency */,
 			);
 			name = metronomeTests;
 			productName = metronomeTests;
-			productReference = 0AA6FEEA23C908A7008757DA /* metronomeTests.xctest */;
+			productReference = 0AA9E6F024262A8C00A93774 /* metronomeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0AA6FEF423C908A7008757DA /* metronomeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0AA6FF0423C908A7008757DA /* Build configuration list for PBXNativeTarget "metronomeUITests" */;
-			buildPhases = (
-				0AA6FEF123C908A7008757DA /* Sources */,
-				0AA6FEF223C908A7008757DA /* Frameworks */,
-				0AA6FEF323C908A7008757DA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0AA6FEF723C908A7008757DA /* PBXTargetDependency */,
-			);
-			name = metronomeUITests;
-			productName = metronomeUITests;
-			productReference = 0AA6FEF523C908A7008757DA /* metronomeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -355,11 +635,7 @@
 					0AA6FED323C908A2008757DA = {
 						CreatedOnToolsVersion = 11.3;
 					};
-					0AA6FEE923C908A7008757DA = {
-						CreatedOnToolsVersion = 11.3;
-						TestTargetID = 0AA6FED323C908A2008757DA;
-					};
-					0AA6FEF423C908A7008757DA = {
+					0AA9E6EF24262A8C00A93774 = {
 						CreatedOnToolsVersion = 11.3;
 						TestTargetID = 0AA6FED323C908A2008757DA;
 					};
@@ -379,8 +655,7 @@
 			projectRoot = "";
 			targets = (
 				0AA6FED323C908A2008757DA /* metronome */,
-				0AA6FEE923C908A7008757DA /* metronomeTests */,
-				0AA6FEF423C908A7008757DA /* metronomeUITests */,
+				0AA9E6EF24262A8C00A93774 /* metronomeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -393,22 +668,26 @@
 				0AE03E5523DA1E10007DF4FA /* C.wav in Resources */,
 				0AE03E5D23DA1E10007DF4FA /* B.wav in Resources */,
 				0AE03E5423DA1E10007DF4FA /* A.wav in Resources */,
+				0AB708F3242B71090029EEE5 /* SettingsCellView.xib in Resources */,
 				0AA6FEE423C908A7008757DA /* LaunchScreen.storyboard in Resources */,
 				0A28439C23D225510019B50F /* FooterView.xib in Resources */,
+				0AA089282423452E0071CA7C /* NoteTableView.xib in Resources */,
 				0AA6FEE123C908A7008757DA /* Assets.xcassets in Resources */,
 				0AE03E5323DA1E10007DF4FA /* F.wav in Resources */,
 				0AE03E5623DA1E10007DF4FA /* Eb.wav in Resources */,
 				0AFF14E123CE491100F0DA9C /* Snare.wav in Resources */,
-				0AA6FEDF23C908A3008757DA /* Main.storyboard in Resources */,
 				0AE03E5823DA1E10007DF4FA /* Bb.wav in Resources */,
-				0AB7F79123D873C700A9F62A /* SelectionCollectionViewController.xib in Resources */,
+				0AB7F79123D873C700A9F62A /* CollectionView.xib in Resources */,
 				0AE03E5E23DA1E10007DF4FA /* E.wav in Resources */,
+				0AA08926242344A30071CA7C /* InstrumentTableView.xib in Resources */,
 				0AFF14D023CE117100F0DA9C /* HeaderView.xib in Resources */,
 				0AFF14E323CE4B3E00F0DA9C /* Bass.wav in Resources */,
 				0AE03E5C23DA1E10007DF4FA /* D.wav in Resources */,
+				0AB708EF242B40060029EEE5 /* SettingsView.xib in Resources */,
 				0AE03E5A23DA1E10007DF4FA /* Db.wav in Resources */,
-				0A0A7FB323D8BA7D00EE5994 /* SelectionCollectionViewCell.xib in Resources */,
-				0A9F10BE23D8025D00AF7B95 /* EditableTableViewCell.xib in Resources */,
+				0A0A7FB323D8BA7D00EE5994 /* CollectionCellView.xib in Resources */,
+				0A9F10BE23D8025D00AF7B95 /* EditableTableCellView.xib in Resources */,
+				0AAC5C5C242179F20056DAE5 /* MetronomeView.xib in Resources */,
 				0AFF14DF23CE48C400F0DA9C /* Hi-hat.wav in Resources */,
 				0AE03E5B23DA1E10007DF4FA /* Ab.wav in Resources */,
 				0AE03E5923DA1E10007DF4FA /* G.wav in Resources */,
@@ -416,14 +695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0AA6FEE823C908A7008757DA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0AA6FEF323C908A7008757DA /* Resources */ = {
+		0AA9E6EE24262A8C00A93774 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -437,66 +709,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAC5C5624216D890056DAE5 /* Metronome.swift in Sources */,
 				0AC68B2323CF897B0086ADF9 /* BPMTimer.swift in Sources */,
+				0AB708F2242B71090029EEE5 /* SettingsCell.swift in Sources */,
+				0AB708F5242B98780029EEE5 /* Preset.swift in Sources */,
+				0AA08924242341410071CA7C /* NoteTable.swift in Sources */,
 				0AA6FEDC23C908A3008757DA /* MetronomeViewController.swift in Sources */,
-				0A28439823D221E20019B50F /* BeatViewController.swift in Sources */,
-				0A05827323D79173002F22C8 /* BackingTrackViewController.swift in Sources */,
+				0A05827323D79173002F22C8 /* NoteTableViewController.swift in Sources */,
+				0AAC5C5A2421766F0056DAE5 /* MetronomePresenter.swift in Sources */,
 				0AD435FD23D3AB9100BD0701 /* Instrument.swift in Sources */,
+				0AA08922242340C00071CA7C /* InstrumentTable.swift in Sources */,
+				0AAC5C58242172CB0056DAE5 /* Builder.swift in Sources */,
 				0A3AFE2423DB6F0C007293A6 /* Note.swift in Sources */,
-				0AB7F79023D873C700A9F62A /* SelectionCollectionViewController.swift in Sources */,
+				0AAC5C79242255160056DAE5 /* EditableTablePresenter.swift in Sources */,
+				0AAC5C6D242237B50056DAE5 /* SoundManager.swift in Sources */,
+				0AB7F79023D873C700A9F62A /* CollectionViewController.swift in Sources */,
 				0AA6FED823C908A3008757DA /* AppDelegate.swift in Sources */,
-				0A28439B23D225510019B50F /* FooterView.swift in Sources */,
-				0A9F10BD23D8025D00AF7B95 /* EditableTableViewCell.swift in Sources */,
+				0A28439B23D225510019B50F /* Footer.swift in Sources */,
+				0AAC5C6B242236400056DAE5 /* TempoCreator.swift in Sources */,
+				0A9F10BD23D8025D00AF7B95 /* EditableTableCell.swift in Sources */,
+				0AAC5C7B242256110056DAE5 /* Table.swift in Sources */,
+				0AA0892024233B650071CA7C /* InstrumentTablePresenter.swift in Sources */,
+				0A02B0882428C4C600F886A5 /* Settings.swift in Sources */,
 				0AA6FEDA23C908A3008757DA /* SceneDelegate.swift in Sources */,
-				0A3AFE1E23DB6646007293A6 /* EditableTable.swift in Sources */,
+				0AAC5C8324226E9F0056DAE5 /* Collection.swift in Sources */,
+				0A3AFE1E23DB6646007293A6 /* EditableTableViewController.swift in Sources */,
+				0AECD32F242C1845004CF80B /* InstrumentTableViewController.swift in Sources */,
 				0ABEF93E23DF7949004D24CE /* SettingsViewController.swift in Sources */,
-				0AC68B2123CF86410086ADF9 /* MetronomeTabBarController.swift in Sources */,
-				0A0A7FB223D8BA7D00EE5994 /* SelectionCollectionViewCell.swift in Sources */,
-				0AFF14CF23CE117100F0DA9C /* HeaderView.swift in Sources */,
+				0AAC5C7724223D9B0056DAE5 /* GlobalSettings.swift in Sources */,
+				0AAC5C8124226DA80056DAE5 /* CollectionPresenter.swift in Sources */,
+				0AC68B2123CF86410086ADF9 /* MainTabBarController.swift in Sources */,
+				0A0A7FB223D8BA7D00EE5994 /* CollectionCell.swift in Sources */,
+				0ABF01DF2429E9F600D7663E /* Storage.swift in Sources */,
+				0AA0891D2423397A0071CA7C /* NoteTablePresenter.swift in Sources */,
+				0A02B0862428C4B600F886A5 /* SettingsPresenter.swift in Sources */,
+				0ADBDBFE24254F0D0049E485 /* MainTabBarPresenter.swift in Sources */,
+				0AFF14CF23CE117100F0DA9C /* Header.swift in Sources */,
 				0A3AFE2623DB6F2D007293A6 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0AA6FEE623C908A7008757DA /* Sources */ = {
+		0AA9E6EC24262A8C00A93774 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA6FEEF23C908A7008757DA /* metronomeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0AA6FEF123C908A7008757DA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0AA6FEFA23C908A7008757DA /* metronomeUITests.swift in Sources */,
+				0AB708F7242BC79E0029EEE5 /* SettingsPresenterTest.swift in Sources */,
+				0ABB8F6824288D1C00B6AEC6 /* CollectionPresenterTest.swift in Sources */,
+				0A8758172427428200037222 /* MetronomeModelTest.swift in Sources */,
+				0AA9E6FB24262B6400A93774 /* MetronomePresenterTest.swift in Sources */,
+				0A87581924276E3000037222 /* EditableTablePresenterTest.swift in Sources */,
+				0AB708FD242BE6BE0029EEE5 /* MainTabBarPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0AA6FEEC23C908A7008757DA /* PBXTargetDependency */ = {
+		0AA9E6F624262A8C00A93774 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AA6FED323C908A2008757DA /* metronome */;
-			targetProxy = 0AA6FEEB23C908A7008757DA /* PBXContainerItemProxy */;
-		};
-		0AA6FEF723C908A7008757DA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0AA6FED323C908A2008757DA /* metronome */;
-			targetProxy = 0AA6FEF623C908A7008757DA /* PBXContainerItemProxy */;
+			targetProxy = 0AA9E6F524262A8C00A93774 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0AA6FEDD23C908A3008757DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AA6FEDE23C908A3008757DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0AA6FEE223C908A7008757DA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -660,15 +936,15 @@
 			};
 			name = Release;
 		};
-		0AA6FF0223C908A7008757DA /* Debug */ = {
+		0AA9E6F824262A8C00A93774 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KD29M7856T;
 				INFOPLIST_FILE = metronomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -676,21 +952,22 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Hyde.metronomeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metronome.app/metronome";
 			};
 			name = Debug;
 		};
-		0AA6FF0323C908A7008757DA /* Release */ = {
+		0AA9E6F924262A8C00A93774 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KD29M7856T;
 				INFOPLIST_FILE = metronomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,49 +975,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Hyde.metronomeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metronome.app/metronome";
-			};
-			name = Release;
-		};
-		0AA6FF0523C908A7008757DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KD29M7856T;
-				INFOPLIST_FILE = metronomeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Hyde.metronomeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = metronome;
-			};
-			name = Debug;
-		};
-		0AA6FF0623C908A7008757DA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KD29M7856T;
-				INFOPLIST_FILE = metronomeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Hyde.metronomeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = metronome;
 			};
 			name = Release;
 		};
@@ -765,20 +1003,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0AA6FF0123C908A7008757DA /* Build configuration list for PBXNativeTarget "metronomeTests" */ = {
+		0AA9E6F724262A8C00A93774 /* Build configuration list for PBXNativeTarget "metronomeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AA6FF0223C908A7008757DA /* Debug */,
-				0AA6FF0323C908A7008757DA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0AA6FF0423C908A7008757DA /* Build configuration list for PBXNativeTarget "metronomeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0AA6FF0523C908A7008757DA /* Debug */,
-				0AA6FF0623C908A7008757DA /* Release */,
+				0AA9E6F824262A8C00A93774 /* Debug */,
+				0AA9E6F924262A8C00A93774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

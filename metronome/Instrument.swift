@@ -8,8 +8,9 @@
 
 import Foundation
 
+// MARK: - Main
+
 enum Instrument: Data {
-    
     
     case snare
     case bass
@@ -23,6 +24,14 @@ enum Instrument: Data {
         }
     }
     
+    static func getData(withName name: String) -> Data? {
+        switch name {
+            case "Snare": return Instrument.snare
+            case "Bass": return Instrument.bass
+            case "Hi-hat": return Instrument.hi_hat
+            default: return nil
+        }
+    }
     
     static var all: [Data?] = [nil, Instrument.snare, Instrument.bass, Instrument.hi_hat]
 }

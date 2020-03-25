@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Main
+
 enum Note: Data {
 
     case C
@@ -40,6 +42,23 @@ enum Note: Data {
         }
     }
     
+    static func getData(withName name: String) -> Data? {
+        switch name {
+            case "C":  return Note.C
+            case "D":  return Note.D
+            case "Db": return Note.Db
+            case "E":  return Note.E
+            case "Eb": return Note.Eb
+            case "F":  return Note.F
+            case "G":  return Note.G
+            case "Gb": return Note.Gb
+            case "A":  return Note.A
+            case "Ab": return Note.Ab
+            case "B":  return Note.B
+            case "Bb": return Note.Bb
+            default: return nil
+        }
+    }
     
     static var all: [Data?] = [nil, Note.C, Note.D, Note.Db, Note.E, Note.Eb, Note.F, Note.G, Note.Gb, Note.A, Note.Ab, Note.B, Note.Bb]
 }

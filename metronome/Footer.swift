@@ -8,14 +8,10 @@
 
 import UIKit
 
+// MARK: - Main
+
 class FooterView: UITableViewCell {
-    
-    // MARK: - IBOutlets
-    
-    @IBOutlet weak var addInstrumentButton: UIButton!
-    
-    // MARK: - Public Properties
+    @IBOutlet weak var addButton: UIButton!
     
     var section = 0
-    
 }

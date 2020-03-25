@@ -31,7 +31,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addInstrumentButton" destination="UAt-hW-wuQ" id="WEu-Xh-Es8"/>
+                <outlet property="addButton" destination="UAt-hW-wuQ" id="fw9-AI-xoK"/>
             </connections>
             <point key="canvasLocation" x="133" y="79"/>
         </tableViewCell>

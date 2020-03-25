@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteTableViewController" customModule="metronome" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="wrV-gw-pkR" id="ZDM-LH-Jdf"/>
+                <outlet property="view" destination="iN0-l3-epB" id="7CV-IL-smk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wrV-gw-pkR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WFH-nG-USB">
+                    <rect key="frame" x="309" y="555.5" width="50" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Ik4-w6-mr1"/>
+                        <constraint firstAttribute="height" constant="50" id="bFx-7u-ozE"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                    <connections>
+                        <action selector="addSection:" destination="-1" eventType="touchUpOutside" id="Imv-dE-Lm5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="wrV-gw-pkR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nm6-M6-hKH"/>
+                <constraint firstAttribute="bottom" secondItem="WFH-nG-USB" secondAttribute="bottom" constant="62" id="Wy7-MM-i2e"/>
+                <constraint firstAttribute="bottom" secondItem="wrV-gw-pkR" secondAttribute="bottom" id="XFK-XN-ybd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wrV-gw-pkR" secondAttribute="trailing" id="dxp-cj-iXl"/>
+                <constraint firstItem="wrV-gw-pkR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eGl-Ef-HwE"/>
+                <constraint firstAttribute="trailing" secondItem="WFH-nG-USB" secondAttribute="trailing" constant="16" id="nCx-Ox-8pX"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="132" y="91"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

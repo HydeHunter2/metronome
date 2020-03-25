@@ -8,11 +8,9 @@
 
 import UIKit
 
+// MARK: - Main
+
 class HeaderView: UITableViewCell {
-    
-    // MARK: - IBOutlets
-    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var addInstrumentButton: UIButton!
-    
 }

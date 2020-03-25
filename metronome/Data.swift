@@ -8,7 +8,10 @@
 
 import Foundation
 
+// MARK: - Main
+
 protocol Data {
     func name() -> String
+    static func getData(withName name: String) -> Data?
     static var all: [Data?] { get set }
 }
