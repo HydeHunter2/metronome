@@ -88,7 +88,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     func openSettings() {
         parentPresenter?.unwindFunctionFromSettings = { data in
             self.metronome.beats = data.beats
-            self.metronome.BPM = data.BPM
+            self.changeBPM(to: data.BPM)
         }
         parentPresenter?.moveToSettings(withData: Preset(title: GlobalSettings.NAME_OF_UNTITLED_PRESET, beats: metronome.beats, BPM: metronome.BPM))
     }
