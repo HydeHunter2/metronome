@@ -19,7 +19,7 @@ protocol MetronomeViewProtocol: class {
 }
 
 protocol MetronomePresenterProtocol {
-    init(view: MetronomeViewProtocol, model: Metronome, soundManager: SoundManagerProtocol)
+    init(view: MetronomeViewProtocol, model: Metronome, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol)
     func togglePower()
     func tempoTap()
     func changeBPM(to bpm: Int)
@@ -47,13 +47,15 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     
     unowned let view: MetronomeViewProtocol
     var metronome: Metronome
+    let vibrationManager: VibrationManagerProtocol
     let soundManager: SoundManagerProtocol
     
     let tempoCreator = TempoCreator()
     
-    required init(view: MetronomeViewProtocol, model: Metronome, soundManager: SoundManagerProtocol) {
+    required init(view: MetronomeViewProtocol, model: Metronome, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol) {
         self.view = view
         self.metronome = model
+        self.vibrationManager = vibrationManager
         self.soundManager = soundManager
         
         tempoCreator.delegate = self
@@ -63,6 +65,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     // MARK: - Public
     
     func togglePower() {
+        vibrationManager.selectionChanged()
         if metronome.isOff {
             turnOnMetronome()
         }
@@ -79,6 +82,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     
     func tempoTap() {
         tempoCreator.tap()
+        vibrationManager.softImpact()
     }
     
     func openSettings() {

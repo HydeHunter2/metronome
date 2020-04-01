@@ -17,7 +17,7 @@ protocol SettingsViewProtocol: class {
 }
 
 protocol SettingsPresenterProtocol {
-    init(view: SettingsViewProtocol, model: Settings, storage: StorageProtocol)
+    init(view: SettingsViewProtocol, model: Settings, vibrationManager: VibrationManagerProtocol, storage: StorageProtocol)
     func getNumberOfPresets() -> Int
     func selectRow(withIndex index: Int)
     func deleteRow(withIndex index: Int)
@@ -47,11 +47,13 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
 
     unowned let view: SettingsViewProtocol
     var settings: Settings
+    let vibrationManager: VibrationManagerProtocol
     let storage: StorageProtocol
     
-    required init(view: SettingsViewProtocol, model: Settings, storage: StorageProtocol) {
+    required init(view: SettingsViewProtocol, model: Settings,  vibrationManager: VibrationManagerProtocol, storage: StorageProtocol) {
         self.view = view
         self.settings = model
+        self.vibrationManager = vibrationManager
         self.storage = storage
         
         settings.presets = storage.getData() as! [Preset]
@@ -73,6 +75,7 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     func selectRow(withIndex index: Int) {
         parentPresenter?.unwindFromSettings(withData: settings.presets[index])
+        vibrationManager.successNotification()
     }
     
     func deleteRow(withIndex index: Int) {
@@ -87,8 +90,10 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
         // do some checks
         
         if settings.presets.map({ $0.title }).contains(title) {
-            //do some warning
+            vibrationManager.errorNotification()
             return
+        } else {
+            vibrationManager.successNotification()
         }
         
         settings.activePreset.title = title
@@ -100,6 +105,7 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     func updateTable() {
         view.updateTable()
+        vibrationManager.selectionChanged()
     }
     
     // MARK: - Private

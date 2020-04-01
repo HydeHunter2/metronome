@@ -19,6 +19,7 @@
 		0A3AFE2623DB6F2D007293A6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFE2523DB6F2D007293A6 /* Data.swift */; };
 		0A8758172427428200037222 /* MetronomeModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8758162427428200037222 /* MetronomeModelTest.swift */; };
 		0A87581924276E3000037222 /* EditableTablePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87581824276E2F00037222 /* EditableTablePresenterTest.swift */; };
+		0A979F3C24334641000208D5 /* VibrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A979F3B24334641000208D5 /* VibrationManager.swift */; };
 		0A9F10BD23D8025D00AF7B95 /* EditableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F10BB23D8025D00AF7B95 /* EditableTableCell.swift */; };
 		0A9F10BE23D8025D00AF7B95 /* EditableTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9F10BC23D8025D00AF7B95 /* EditableTableCellView.xib */; };
 		0AA0891D2423397A0071CA7C /* NoteTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0891C2423397A0071CA7C /* NoteTablePresenter.swift */; };
@@ -102,6 +103,7 @@
 		0A3AFE2523DB6F2D007293A6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0A8758162427428200037222 /* MetronomeModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeModelTest.swift; sourceTree = "<group>"; };
 		0A87581824276E2F00037222 /* EditableTablePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTablePresenterTest.swift; sourceTree = "<group>"; };
+		0A979F3B24334641000208D5 /* VibrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationManager.swift; sourceTree = "<group>"; };
 		0A9F10BB23D8025D00AF7B95 /* EditableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTableCell.swift; sourceTree = "<group>"; };
 		0A9F10BC23D8025D00AF7B95 /* EditableTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableTableCellView.xib; sourceTree = "<group>"; };
 		0AA0891C2423397A0071CA7C /* NoteTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTablePresenter.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */,
 				0AAC5C6A242236400056DAE5 /* TempoCreator.swift */,
 				0AAC5C6C242237B50056DAE5 /* SoundManager.swift */,
+				0A979F3B24334641000208D5 /* VibrationManager.swift */,
 				0ABF01DE2429E9F600D7663E /* Storage.swift */,
 				0AAC5C57242172CB0056DAE5 /* Builder.swift */,
 				0AAC5C7624223D9B0056DAE5 /* GlobalSettings.swift */,
@@ -717,6 +720,7 @@
 				0AA6FEDC23C908A3008757DA /* MetronomeViewController.swift in Sources */,
 				0A05827323D79173002F22C8 /* NoteTableViewController.swift in Sources */,
 				0AAC5C5A2421766F0056DAE5 /* MetronomePresenter.swift in Sources */,
+				0A979F3C24334641000208D5 /* VibrationManager.swift in Sources */,
 				0AD435FD23D3AB9100BD0701 /* Instrument.swift in Sources */,
 				0AA08922242340C00071CA7C /* InstrumentTable.swift in Sources */,
 				0AAC5C58242172CB0056DAE5 /* Builder.swift in Sources */,

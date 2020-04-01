@@ -37,9 +37,9 @@ class MainTabBarController: UITabBarController {
               let noteVC = noteVC
               else { fatalError() }
         
-        instrumentVC.tabBarItem = UITabBarItem(title: "Drum", image: UIImage(systemName: "paperplane.fill"), tag: 0)
-        metronomeVC.tabBarItem = UITabBarItem(title: "Metronome", image: UIImage(systemName: "paperplane.fill"), tag: 1)
-        noteVC.tabBarItem = UITabBarItem(title: "Melody", image: UIImage(systemName: "paperplane.fill"), tag: 2)
+        instrumentVC.tabBarItem = UITabBarItem(title: "Drum", image: UIImage(systemName: "dial"), selectedImage: UIImage(systemName: "dial.fill"))
+        metronomeVC.tabBarItem = UITabBarItem(title: "Metronome", image: UIImage(systemName: "metronome"), selectedImage: UIImage(systemName: "mostViewed"))
+        noteVC.tabBarItem = UITabBarItem(title: "Melody", image: UIImage(systemName: "music.note"), selectedImage: UIImage(systemName: "music.note.list"))
         
         let tabBarList = [instrumentVC, metronomeVC, noteVC]
         viewControllers = tabBarList

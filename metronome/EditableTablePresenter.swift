@@ -17,7 +17,7 @@ protocol EditableTableViewProtocol: class {
 }
 
 protocol EditableTablePresenterProtocol {
-    init(view: EditableTableViewProtocol, model: TableProtocol, soundManager: SoundManagerProtocol)
+    init(view: EditableTableViewProtocol, model: TableProtocol, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol)
     func addRow(inSection section: Int)
     func addSection()
     func getNumberOfSections() -> Int
@@ -51,13 +51,15 @@ class EditableTablePresenter: EditableTablePresenterProtocol, ChildEditableTable
 
     unowned let view: EditableTableViewProtocol
     var table: TableProtocol
+    let vibrationManager: VibrationManagerProtocol
     let soundManager: SoundManagerProtocol
     
     var dataForCollection: [Data?] = []
     
-    required init(view: EditableTableViewProtocol, model: TableProtocol, soundManager: SoundManagerProtocol) {
+    required init(view: EditableTableViewProtocol, model: TableProtocol, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol) {
         self.view = view
         self.table = model
+        self.vibrationManager = vibrationManager
         self.soundManager = soundManager
     }
     
@@ -120,6 +122,7 @@ class EditableTablePresenter: EditableTablePresenterProtocol, ChildEditableTable
     
     func updateTable() {
         view.updateTable()
+        vibrationManager.selectionChanged()
     }
     
     // MARK: - Private

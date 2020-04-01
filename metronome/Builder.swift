@@ -38,35 +38,35 @@ class Builder {
             model.beats += [(instruments: GlobalSettings.STANDART_INSTRUMENTS[tick], notes: GlobalSettings.STANDART_NOTES[tick])]
         }
         let view = MetronomeViewController()
-        let presenter = MetronomePresenter(view: view, model: model, soundManager: SoundManager())
+        let presenter = MetronomePresenter(view: view, model: model, vibrationManager: VibrationManager(), soundManager: SoundManager())
         view.presenter = presenter
         return (presenter: presenter, view: view)
     }
     static func createSettingsModule() -> (presenter: SettingsPresenter, view: SettingsViewController) {
         let model = Settings()
         let view = SettingsViewController()
-        let presenter = SettingsPresenter(view: view, model: model, storage: Storage<Preset>(withKeySavingString: GlobalSettings.STRING_OF_PRESETS_KEY_SAVING))
+        let presenter = SettingsPresenter(view: view, model: model, vibrationManager: VibrationManager(), storage: Storage<Preset>(withKeySavingString: GlobalSettings.STRING_OF_PRESETS_KEY_SAVING))
         view.presenter = presenter
         return (presenter: presenter, view: view)
     }
     static func createInstrumentModule() -> (presenter: InstrumentTablePresenter, view: InstrumentTableViewController) {
         let model = InstrumentTable()
         let view = InstrumentTableViewController()
-        let presenter = InstrumentTablePresenter(view: view, model: model, soundManager: SoundManager())
+        let presenter = InstrumentTablePresenter(view: view, model: model, vibrationManager: VibrationManager(), soundManager: SoundManager())
         view.presenter = presenter
         return (presenter: presenter, view: view)
     }
     static func createNoteModule() -> (presenter: NoteTablePresenter, view: NoteTableViewController) {
         let model = NoteTable()
         let view = NoteTableViewController()
-        let presenter = NoteTablePresenter(view: view, model: model, soundManager: SoundManager())
+        let presenter = NoteTablePresenter(view: view, model: model, vibrationManager: VibrationManager(), soundManager: SoundManager())
         view.presenter = presenter
         return (presenter: presenter, view: view)
     }
     static func createCollectionModule() -> (presenter: CollectionPresenter, view: CollectionViewController) {
         let model = Collection()
         let view = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        let presenter = CollectionPresenter(view: view, model: model)
+        let presenter = CollectionPresenter(view: view, model: model, vibrationManager: VibrationManager())
         view.presenter = presenter
         return (presenter: presenter, view: view)
     }
