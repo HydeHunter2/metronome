@@ -15,13 +15,14 @@ protocol CollectionViewProtocol: class {
 }
 
 protocol CollectionPresenterProtocol {
-    init(view: CollectionViewProtocol, model: Collection, vibrationManager: VibrationManagerProtocol)
+    init(view: CollectionViewProtocol, model: Collection)
     func getNumberOfCells() -> Int
     func selectCell(withIndex index: Int)
     func getImageName(forIndex index: Int) -> String
 }
 
 protocol ParentOfCollectionPresenterProtocol {
+    var vibrationManager: VibrationManagerProtocol { get set }
     func unwindFromCollection(data: Data?)
 }
 
@@ -41,12 +42,10 @@ class CollectionPresenter: CollectionPresenterProtocol, ChildCollectionPresenter
     
     unowned let view: CollectionViewProtocol
     var collection: Collection
-    var vibrationManager: VibrationManagerProtocol
     
-    required init(view: CollectionViewProtocol, model: Collection, vibrationManager: VibrationManagerProtocol) {
+    required init(view: CollectionViewProtocol, model: Collection) {
         self.view = view
         self.collection = model
-        self.vibrationManager = vibrationManager
     }
     
     // MARK: - Public Properties
@@ -61,7 +60,7 @@ class CollectionPresenter: CollectionPresenterProtocol, ChildCollectionPresenter
     
     func selectCell(withIndex index: Int) {
         parentPresenter?.unwindFromCollection(data: collection.data[index])
-        vibrationManager.selectionChanged()
+        parentPresenter?.vibrationManager.selectionChanged()
     }
     
     func updateCollection() {

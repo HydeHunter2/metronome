@@ -1,5 +1,5 @@
 //
-//  Storage.swift
+//  StorageManager.swift
 //  metronome
 //
 //  Created by Egor on 3/24/20.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Protocols
 
-protocol StorageProtocol {
+protocol StorageManagerProtocol {
     func getData() -> [StorageObjectProtocol]
     func setData(_ data: [StorageObjectProtocol])
 }
@@ -19,7 +19,7 @@ protocol StorageObjectProtocol: NSObject, NSCoding {}
 
 // MARK: - Main
 
-class Storage<Object: StorageObjectProtocol>: StorageProtocol {
+class StorageManager<Object: StorageObjectProtocol>: StorageManagerProtocol {
     
     // MARK: - Initialization
     

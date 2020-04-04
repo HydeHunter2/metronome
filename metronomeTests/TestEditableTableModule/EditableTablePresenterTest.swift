@@ -15,8 +15,6 @@ class EditableTablePresenterTest: XCTestCase {
     
     // MARK: - Initialization
     
-    var soundManager: MockSoundManager!
-    
     var model: TableProtocol! {
         get { presenter?.table }
         set { presenter?.table = newValue }
@@ -27,20 +25,18 @@ class EditableTablePresenterTest: XCTestCase {
     var parentPresenter: MockParentOfEditableTablePresenter!
     
     override func setUp() {
-        soundManager = MockSoundManager()
-        
         view = MockEditableTableView()
-        presenter = EditableTablePresenter(view: view, model: Table(), soundManager: soundManager)
+        presenter = EditableTablePresenter(view: view, model: Table())
         
         parentPresenter = MockParentOfEditableTablePresenter()
         presenter.parentPresenter = parentPresenter
     }
 
     override func tearDown() {
-        soundManager = nil
-        
         view = nil
         presenter = nil
+        
+        parentPresenter = nil
     }
     
     //MARK: - Tests
@@ -242,15 +238,6 @@ class EditableTablePresenterTest: XCTestCase {
             table[path.section].remove(at: path.row)
         }
     }
-
-    class MockParentOfEditableTablePresenter: ParentOfEditableTablePresenterProtocol {
-        var unwindFunctionFromCollection: ((metronome.Data?) -> ())?
-        
-        func moveToCollection(withData data: [metronome.Data?]) {
-            guard let unwind = unwindFunctionFromCollection else { return }
-            unwind(MockData.Test)
-        }
-    }
     
     class MockSoundManager: SoundManagerProtocol {
         func playIntro(withTickDuration tickDuration: Double) {}
@@ -258,6 +245,29 @@ class EditableTablePresenterTest: XCTestCase {
         func wipe() {}
         func playTick(withSounds sounds: [Sound], tickDuration: Double) {}
         func playSound(_ sound: Sound) {}
+    }
+    
+    class MockVibrationManager: VibrationManagerProtocol {
+        func selectionChanged() {}
+        func successNotification() {}
+        func errorNotification() {}
+        func warningNotification() {}
+        func heavyImpact() {}
+        func mediumImpact() {}
+        func lightImpact() {}
+        func softImpact() {}
+        func rigidImpact() {}
+    }
+
+    class MockParentOfEditableTablePresenter: ParentOfEditableTablePresenterProtocol {
+        var soundManager: SoundManagerProtocol = MockSoundManager()
+        var vibrationManager: VibrationManagerProtocol = MockVibrationManager()
+        var unwindFunctionFromCollection: ((metronome.Data?) -> ())?
+        
+        func moveToCollection(withData data: [metronome.Data?]) {
+            guard let unwind = unwindFunctionFromCollection else { return }
+            unwind(MockData.Test)
+        }
     }
     
 }

@@ -15,8 +15,6 @@ class SettingsPresenterTest: XCTestCase {
 
     // MARK: - Initialization
     
-    var storage: MockStorage!
-    
     var model: Settings! {
         get { presenter?.settings }
         set { presenter?.settings = newValue }
@@ -27,18 +25,14 @@ class SettingsPresenterTest: XCTestCase {
     var parentPresenter: MockParentOfSettingsPresenter!
     
     override func setUp() {
-        storage = MockStorage()
-        
         view = MockSettingsView()
-        presenter = SettingsPresenter(view: view, model: Settings(), storage: storage)
+        presenter = SettingsPresenter(view: view, model: Settings())
         
         parentPresenter = MockParentOfSettingsPresenter()
         presenter.parentPresenter = parentPresenter
     }
 
     override func tearDown() {
-        storage = nil
-        
         view = nil
         presenter = nil
         
@@ -98,7 +92,7 @@ class SettingsPresenterTest: XCTestCase {
     
     // MARK: - Mocks
     
-    class MockStorage: StorageProtocol {
+    class MockStorageManager: StorageManagerProtocol {
         var presets: [Preset] = []
         func getData() -> [StorageObjectProtocol] {
             return presets
@@ -108,6 +102,27 @@ class SettingsPresenterTest: XCTestCase {
         }
     }
     
+    class MockVibrationManager: VibrationManagerProtocol {
+        func selectionChanged() {}
+        func successNotification() {}
+        func errorNotification() {}
+        func warningNotification() {}
+        func heavyImpact() {}
+        func mediumImpact() {}
+        func lightImpact() {}
+        func softImpact() {}
+        func rigidImpact() {}
+    }
+    
+    class MockParentOfSettingsPresenter: ParentOfSettingsPresenterProtocol {
+        var storageManager: StorageManagerProtocol = MockStorageManager()
+        var vibrationManager: VibrationManagerProtocol = MockVibrationManager()
+        var unwinded = false
+        func unwindFromSettings(withData data: Preset) {
+            unwinded = true
+        }
+    }
+        
     class MockSettingsView: SettingsViewProtocol {
         var tableUpdated = false
         
@@ -118,13 +133,6 @@ class SettingsPresenterTest: XCTestCase {
         
         func updateTable() {
             tableUpdated = true
-        }
-    }
-    
-    class MockParentOfSettingsPresenter: ParentOfSettingsPresenterProtocol {
-        var unwinded = false
-        func unwindFromSettings(withData data: Preset) {
-            unwinded = true
         }
     }
     

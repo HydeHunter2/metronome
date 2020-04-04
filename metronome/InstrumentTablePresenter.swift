@@ -12,8 +12,8 @@ import Foundation
 
 class InstrumentTablePresenter: EditableTablePresenter {
     
-    required init(view: EditableTableViewProtocol, model: TableProtocol, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol) {
-        super.init(view: view, model: model, vibrationManager: vibrationManager, soundManager: soundManager)
+    required init(view: EditableTableViewProtocol, model: TableProtocol) {
+        super.init(view: view, model: model)
         
         dataForCollection = Instrument.all
     }

@@ -9,18 +9,15 @@
 import XCTest
 @testable import metronome
 
-/*
-func passDataToMetronomePresenter()
-     func syncData()
-
-
- */
-
 // MARK: - Main
 
 class MainTabBarPresenterTest: XCTestCase {
 
     // MARK: - Initialization
+    
+    var storageManager: MockStorageManager!
+    var soundManager: MockSoundManager!
+    var vibrationManager: MockVibrationManager!
     
     var metronomePresenter: MockMetronomePresenter!
     var settingsPresenter: MockSettingsPresenter!
@@ -32,6 +29,10 @@ class MainTabBarPresenterTest: XCTestCase {
     var presenter: MainTabBarPresenter!
     
     override func setUp() {
+        storageManager = MockStorageManager()
+        soundManager = MockSoundManager()
+        vibrationManager = MockVibrationManager()
+        
         metronomePresenter = MockMetronomePresenter()
         settingsPresenter = MockSettingsPresenter()
         instrumentPresenter = MockEditableTablePresenter()
@@ -39,10 +40,14 @@ class MainTabBarPresenterTest: XCTestCase {
         collectionPresenter = MockCollectionPresenter()
         
         controller = MockMainTabBarController()
-        presenter = MainTabBarPresenter(controller: controller, metronome: metronomePresenter, settings: settingsPresenter, instrument: instrumentPresenter, note: notePresenter, collection: collectionPresenter)
+        presenter = MainTabBarPresenter(controller: controller, metronome: metronomePresenter, settings: settingsPresenter, instrument: instrumentPresenter, note: notePresenter, collection: collectionPresenter, storageManager: storageManager, soundManager: soundManager, vibrationManager: vibrationManager)
     }
 
     override func tearDown() {
+        storageManager = nil
+        soundManager = nil
+        vibrationManager = nil
+        
         metronomePresenter = nil
         settingsPresenter = nil
         instrumentPresenter = nil
@@ -210,9 +215,32 @@ class MainTabBarPresenterTest: XCTestCase {
     class MockCollectionPresenter: ChildCollectionPresenterProtocol {
         var parentPresenter: ParentOfCollectionPresenterProtocol?
         var collection = Collection()
-        func updateCollection() {
-            
-        }
+        func updateCollection() {}
+    }
+    
+    class MockStorageManager: StorageManagerProtocol {
+        func getData() -> [StorageObjectProtocol] { return [Preset.empty] }
+        func setData(_ data: [StorageObjectProtocol]) {}
+    }
+    
+    class MockSoundManager: SoundManagerProtocol {
+        func playIntro(withTickDuration tickDuration: Double) {}
+        func off() {}
+        func wipe() {}
+        func playTick(withSounds sounds: [Sound], tickDuration: Double) {}
+        func playSound(_ sound: Sound) {}
+    }
+    
+    class MockVibrationManager: VibrationManagerProtocol {
+        func selectionChanged() {}
+        func successNotification() {}
+        func errorNotification() {}
+        func warningNotification() {}
+        func heavyImpact() {}
+        func mediumImpact() {}
+        func lightImpact() {}
+        func softImpact() {}
+        func rigidImpact() {}
     }
     
 }

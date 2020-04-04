@@ -99,7 +99,20 @@ class CollectionPresenterTest: XCTestCase {
         }
     }
     
+    class MockVibrationManager: VibrationManagerProtocol {
+        func selectionChanged() {}
+        func successNotification() {}
+        func errorNotification() {}
+        func warningNotification() {}
+        func heavyImpact() {}
+        func mediumImpact() {}
+        func lightImpact() {}
+        func softImpact() {}
+        func rigidImpact() {}
+    }
+    
     class MockParentOfCollectionPresenter: ParentOfCollectionPresenterProtocol {
+        var vibrationManager: VibrationManagerProtocol = MockVibrationManager()
         
         var dataToUnwind: MockData? = nil
         

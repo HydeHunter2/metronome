@@ -17,7 +17,7 @@ protocol SettingsViewProtocol: class {
 }
 
 protocol SettingsPresenterProtocol {
-    init(view: SettingsViewProtocol, model: Settings, vibrationManager: VibrationManagerProtocol, storage: StorageProtocol)
+    init(view: SettingsViewProtocol, model: Settings)
     func getNumberOfPresets() -> Int
     func selectRow(withIndex index: Int)
     func deleteRow(withIndex index: Int)
@@ -27,6 +27,8 @@ protocol SettingsPresenterProtocol {
 }
 
 protocol ParentOfSettingsPresenterProtocol {
+    var storageManager: StorageManagerProtocol { get set }
+    var vibrationManager: VibrationManagerProtocol { get set }
     func unwindFromSettings(withData data: Preset)
 }
 
@@ -43,20 +45,18 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     // MARK: - Initialization
     
-    var parentPresenter: ParentOfSettingsPresenterProtocol?
+    var parentPresenter: ParentOfSettingsPresenterProtocol? {
+        didSet {
+            settings.presets = parentPresenter?.storageManager.getData() as! [Preset]
+        }
+    }
 
     unowned let view: SettingsViewProtocol
     var settings: Settings
-    let vibrationManager: VibrationManagerProtocol
-    let storage: StorageProtocol
     
-    required init(view: SettingsViewProtocol, model: Settings,  vibrationManager: VibrationManagerProtocol, storage: StorageProtocol) {
+    required init(view: SettingsViewProtocol, model: Settings) {
         self.view = view
         self.settings = model
-        self.vibrationManager = vibrationManager
-        self.storage = storage
-        
-        settings.presets = storage.getData() as! [Preset]
     }
     
     // MARK: - Public
@@ -75,7 +75,7 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     func selectRow(withIndex index: Int) {
         parentPresenter?.unwindFromSettings(withData: settings.presets[index])
-        vibrationManager.successNotification()
+        parentPresenter?.vibrationManager.successNotification()
     }
     
     func deleteRow(withIndex index: Int) {
@@ -90,10 +90,10 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
         // do some checks
         
         if settings.presets.map({ $0.title }).contains(title) {
-            vibrationManager.errorNotification()
+            parentPresenter?.vibrationManager.errorNotification()
             return
         } else {
-            vibrationManager.successNotification()
+            parentPresenter?.vibrationManager.successNotification()
         }
         
         settings.activePreset.title = title
@@ -105,13 +105,13 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     func updateTable() {
         view.updateTable()
-        vibrationManager.selectionChanged()
+        parentPresenter?.vibrationManager.selectionChanged()
     }
     
     // MARK: - Private
     
     private func syncStorage() {
-        storage.setData(settings.presets)
+        parentPresenter?.storageManager.setData(settings.presets)
     }
     
 }

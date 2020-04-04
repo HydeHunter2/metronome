@@ -17,7 +17,7 @@ protocol EditableTableViewProtocol: class {
 }
 
 protocol EditableTablePresenterProtocol {
-    init(view: EditableTableViewProtocol, model: TableProtocol, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol)
+    init(view: EditableTableViewProtocol, model: TableProtocol)
     func addRow(inSection section: Int)
     func addSection()
     func getNumberOfSections() -> Int
@@ -31,6 +31,8 @@ protocol EditableTablePresenterProtocol {
 }
 
 protocol ParentOfEditableTablePresenterProtocol {
+    var soundManager: SoundManagerProtocol { get set }
+    var vibrationManager: VibrationManagerProtocol { get set }
     var unwindFunctionFromCollection: ((_ data: Data?) -> ())? { get set }
     func moveToCollection(withData data: [Data?])
 }
@@ -51,16 +53,12 @@ class EditableTablePresenter: EditableTablePresenterProtocol, ChildEditableTable
 
     unowned let view: EditableTableViewProtocol
     var table: TableProtocol
-    let vibrationManager: VibrationManagerProtocol
-    let soundManager: SoundManagerProtocol
     
     var dataForCollection: [Data?] = []
     
-    required init(view: EditableTableViewProtocol, model: TableProtocol, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol) {
+    required init(view: EditableTableViewProtocol, model: TableProtocol) {
         self.view = view
         self.table = model
-        self.vibrationManager = vibrationManager
-        self.soundManager = soundManager
     }
     
     // MARK: - Public
@@ -117,12 +115,12 @@ class EditableTablePresenter: EditableTablePresenterProtocol, ChildEditableTable
     }
     
     func playSound(_ sound: Sound) {
-        soundManager.playSound(sound)
+        parentPresenter?.soundManager.playSound(sound)
     }
     
     func updateTable() {
         view.updateTable()
-        vibrationManager.selectionChanged()
+        parentPresenter?.vibrationManager.selectionChanged()
     }
     
     // MARK: - Private

@@ -55,7 +55,7 @@
 		0AB7F79123D873C700A9F62A /* CollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7F78F23D873C700A9F62A /* CollectionView.xib */; };
 		0ABB8F6824288D1C00B6AEC6 /* CollectionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB8F6724288D1C00B6AEC6 /* CollectionPresenterTest.swift */; };
 		0ABEF93E23DF7949004D24CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */; };
-		0ABF01DF2429E9F600D7663E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABF01DE2429E9F600D7663E /* Storage.swift */; };
+		0ABF01DF2429E9F600D7663E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABF01DE2429E9F600D7663E /* StorageManager.swift */; };
 		0AC68B2123CF86410086ADF9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2023CF86410086ADF9 /* MainTabBarController.swift */; };
 		0AC68B2323CF897B0086ADF9 /* BPMTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */; };
 		0AD435FD23D3AB9100BD0701 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD435FC23D3AB9100BD0701 /* Instrument.swift */; };
@@ -143,7 +143,7 @@
 		0AB7F78F23D873C700A9F62A /* CollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionView.xib; sourceTree = "<group>"; };
 		0ABB8F6724288D1C00B6AEC6 /* CollectionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPresenterTest.swift; sourceTree = "<group>"; };
 		0ABEF93D23DF7949004D24CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		0ABF01DE2429E9F600D7663E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		0ABF01DE2429E9F600D7663E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0AC68B2023CF86410086ADF9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0AC68B2223CF897B0086ADF9 /* BPMTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTimer.swift; sourceTree = "<group>"; };
 		0AD435FC23D3AB9100BD0701 /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 				0AAC5C6A242236400056DAE5 /* TempoCreator.swift */,
 				0AAC5C6C242237B50056DAE5 /* SoundManager.swift */,
 				0A979F3B24334641000208D5 /* VibrationManager.swift */,
-				0ABF01DE2429E9F600D7663E /* Storage.swift */,
+				0ABF01DE2429E9F600D7663E /* StorageManager.swift */,
 				0AAC5C57242172CB0056DAE5 /* Builder.swift */,
 				0AAC5C7624223D9B0056DAE5 /* GlobalSettings.swift */,
 				0AD435FB23D39F2100BD0701 /* Sounds */,
@@ -744,7 +744,7 @@
 				0AAC5C8124226DA80056DAE5 /* CollectionPresenter.swift in Sources */,
 				0AC68B2123CF86410086ADF9 /* MainTabBarController.swift in Sources */,
 				0A0A7FB223D8BA7D00EE5994 /* CollectionCell.swift in Sources */,
-				0ABF01DF2429E9F600D7663E /* Storage.swift in Sources */,
+				0ABF01DF2429E9F600D7663E /* StorageManager.swift in Sources */,
 				0AA0891D2423397A0071CA7C /* NoteTablePresenter.swift in Sources */,
 				0A02B0862428C4B600F886A5 /* SettingsPresenter.swift in Sources */,
 				0ADBDBFE24254F0D0049E485 /* MainTabBarPresenter.swift in Sources */,

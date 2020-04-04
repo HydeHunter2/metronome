@@ -16,7 +16,7 @@ protocol MainTabBarControllerProtocol: class {
 }
 
 protocol MainTabBarPresenterProtocol {
-    init(controller: MainTabBarControllerProtocol, metronome: ChildMetronomePresenterProtocol, settings: ChildSettingsPresenterProtocol, instrument: ChildEditableTablePresenterProtocol, note: ChildEditableTablePresenterProtocol, collection: ChildCollectionPresenterProtocol)
+    init(controller: MainTabBarControllerProtocol, metronome: ChildMetronomePresenterProtocol, settings: ChildSettingsPresenterProtocol, instrument: ChildEditableTablePresenterProtocol, note: ChildEditableTablePresenterProtocol, collection: ChildCollectionPresenterProtocol, storageManager: StorageManagerProtocol, soundManager: SoundManagerProtocol, vibrationManager: VibrationManagerProtocol)
     func passDataToMetronomePresenter()
     func syncData()
 }
@@ -27,6 +27,10 @@ class MainTabBarPresenter: MainTabBarPresenterProtocol, ParentOfEditableTablePre
     
     // MARK: - Initialization
     
+    var storageManager: StorageManagerProtocol
+    var soundManager: SoundManagerProtocol
+    var vibrationManager: VibrationManagerProtocol
+    
     unowned let controller: MainTabBarControllerProtocol
     
     var metronomePresenter: ChildMetronomePresenterProtocol
@@ -35,7 +39,12 @@ class MainTabBarPresenter: MainTabBarPresenterProtocol, ParentOfEditableTablePre
     var notePresenter: ChildEditableTablePresenterProtocol
     var collectionPresenter: ChildCollectionPresenterProtocol
     
-    required init(controller: MainTabBarControllerProtocol, metronome: ChildMetronomePresenterProtocol, settings: ChildSettingsPresenterProtocol, instrument: ChildEditableTablePresenterProtocol, note: ChildEditableTablePresenterProtocol, collection: ChildCollectionPresenterProtocol) {
+    required init(controller: MainTabBarControllerProtocol, metronome: ChildMetronomePresenterProtocol, settings: ChildSettingsPresenterProtocol, instrument: ChildEditableTablePresenterProtocol, note: ChildEditableTablePresenterProtocol, collection: ChildCollectionPresenterProtocol, storageManager: StorageManagerProtocol, soundManager: SoundManagerProtocol, vibrationManager: VibrationManagerProtocol) {
+        
+        self.storageManager = storageManager
+        self.soundManager = soundManager
+        self.vibrationManager = vibrationManager
+        
         self.controller = controller
         
         self.metronomePresenter = metronome

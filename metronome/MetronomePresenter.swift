@@ -19,7 +19,7 @@ protocol MetronomeViewProtocol: class {
 }
 
 protocol MetronomePresenterProtocol {
-    init(view: MetronomeViewProtocol, model: Metronome, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol)
+    init(view: MetronomeViewProtocol, model: Metronome)
     func togglePower()
     func tempoTap()
     func changeBPM(to bpm: Int)
@@ -27,6 +27,8 @@ protocol MetronomePresenterProtocol {
 }
 
 protocol ParentOfMetronomePresenterProtocol {
+    var soundManager: SoundManagerProtocol { get set }
+    var vibrationManager: VibrationManagerProtocol { get set }
     var unwindFunctionFromSettings: ((_ data: Preset) -> ())? { get set }
     func moveToSettings(withData data: Preset)
 }
@@ -47,16 +49,12 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     
     unowned let view: MetronomeViewProtocol
     var metronome: Metronome
-    let vibrationManager: VibrationManagerProtocol
-    let soundManager: SoundManagerProtocol
     
     let tempoCreator = TempoCreator()
     
-    required init(view: MetronomeViewProtocol, model: Metronome, vibrationManager: VibrationManagerProtocol, soundManager: SoundManagerProtocol) {
+    required init(view: MetronomeViewProtocol, model: Metronome) {
         self.view = view
         self.metronome = model
-        self.vibrationManager = vibrationManager
-        self.soundManager = soundManager
         
         tempoCreator.delegate = self
         metronome.delegate = self
@@ -65,7 +63,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     // MARK: - Public
     
     func togglePower() {
-        vibrationManager.selectionChanged()
+        parentPresenter?.vibrationManager.selectionChanged()
         if metronome.isOff {
             turnOnMetronome()
         }
@@ -82,7 +80,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     
     func tempoTap() {
         tempoCreator.tap()
-        vibrationManager.softImpact()
+        parentPresenter?.vibrationManager.softImpact()
     }
     
     func openSettings() {
@@ -108,11 +106,11 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
         view.putPauseImageOnPowerButton()
         view.disableIdleTimer()
         
-        soundManager.wipe()
+        parentPresenter?.soundManager.wipe()
         metronome.tick = 0
         metronome.isOn = true
         
-        soundManager.playIntro(withTickDuration: metronome.tickDuration)
+        parentPresenter?.soundManager.playIntro(withTickDuration: metronome.tickDuration)
     }
     
     private func turnOffMetronome() {
@@ -120,7 +118,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
         view.enableIdleTimer()
         
         metronome.isOff = true
-        soundManager.off()
+        parentPresenter?.soundManager.off()
     }
     
 }
@@ -134,7 +132,7 @@ extension MetronomePresenter: MetronomeDelegate {
         
         let tickInstruments = metronome.beats[metronome.tick].instruments.map{Sound(name: $0?.name() ?? GlobalSettings.STRING_OF_NILDATA)}
         let tickNotes = metronome.beats[metronome.tick].notes.map{Sound(name: $0?.name() ?? GlobalSettings.STRING_OF_NILDATA)}
-        soundManager.playTick(withSounds: tickInstruments + tickNotes, tickDuration: metronome.tickDuration)
+        parentPresenter?.soundManager.playTick(withSounds: tickInstruments + tickNotes, tickDuration: metronome.tickDuration)
         metronome.increaseTick()
     }
     

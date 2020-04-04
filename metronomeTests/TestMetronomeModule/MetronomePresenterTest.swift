@@ -15,8 +15,6 @@ class MetronomePresenterTest: XCTestCase {
     
     // MARK: - Initialization
     
-    var soundManager: MockSoundManager!
-    
     var model: Metronome! {
         get { presenter?.metronome }
         set { presenter?.metronome = newValue }
@@ -25,15 +23,11 @@ class MetronomePresenterTest: XCTestCase {
     var presenter: MetronomePresenter!
     
     override func setUp() {
-        soundManager = MockSoundManager()
-        
         view = MockMetronomeView()
-        presenter = MetronomePresenter(view: view, model: Metronome(), soundManager: soundManager)
+        presenter = MetronomePresenter(view: view, model: Metronome())
     }
 
     override func tearDown() {
-        soundManager = nil
-        
         view = nil
         presenter = nil
     }
@@ -135,6 +129,18 @@ class MetronomePresenterTest: XCTestCase {
         func wipe() {}
         func playTick(withSounds sounds: [Sound], tickDuration: Double) {}
         func playSound(_ sound: Sound) {}
+    }
+    
+    class MockVibrationManager: VibrationManagerProtocol {
+        func selectionChanged() {}
+        func successNotification() {}
+        func errorNotification() {}
+        func warningNotification() {}
+        func heavyImpact() {}
+        func mediumImpact() {}
+        func lightImpact() {}
+        func softImpact() {}
+        func rigidImpact() {}
     }
     
 }
