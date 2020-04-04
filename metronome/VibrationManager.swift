@@ -30,39 +30,57 @@ class VibrationManager: VibrationManagerProtocol {
     // MARK: - Public
     
     func selectionChanged() {
-        UISelectionFeedbackGenerator().selectionChanged()
+        DispatchQueue.main.async {
+            UISelectionFeedbackGenerator().selectionChanged()
+        }
     }
     
     func successNotification() {
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        DispatchQueue.main.async {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        }
     }
     
     func errorNotification() {
-        UINotificationFeedbackGenerator().notificationOccurred(.error)
+        DispatchQueue.main.async {
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+        }
     }
     
     func warningNotification() {
-        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        DispatchQueue.main.async {
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        }
     }
     
     func heavyImpact() {
-        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+        }
     }
     
     func mediumImpact() {
-        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        }
     }
     
     func lightImpact() {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        }
     }
     
     func softImpact() {
-        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        }
     }
     
     func rigidImpact() {
-        UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+        }
     }
     
 }
