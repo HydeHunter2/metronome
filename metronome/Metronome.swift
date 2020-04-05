@@ -32,6 +32,7 @@ struct Metronome {
         }
     }
 
+    var title: String = GlobalSettings.NAME_OF_UNTITLED_PRESET
     var BPM: Int { get { Int(timer.bpm) } set { timer.bpm = Double(newValue) } }
     var isOn: Bool { get { !timer.paused } set { newValue ? timer.start() : timer.stop() } }
     var isOff: Bool { get { !isOn } set { isOn = !newValue } }

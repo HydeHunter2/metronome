@@ -16,7 +16,7 @@ struct GlobalSettings {
     static let MIN_TAPS = 3
     static let MAX_TAPS = 6
     static let STRING_OF_NILDATA = "None"
-    static let NAME_OF_UNTITLED_PRESET = "Untitled"
+    static let NAME_OF_UNTITLED_PRESET = "Metronome"
     static let STRING_OF_PRESETS_KEY_SAVING = "METRONOME_STORAGE_OF_PRESETS"
     static let STANDART_NUMBER_OF_TICKS = 4
     static let STANDART_NUMBER_OF_DATA_IN_TICK = 4

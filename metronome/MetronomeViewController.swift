@@ -16,6 +16,7 @@ class MetronomeViewController: UIViewController {
     
     @IBOutlet weak var powerButton: UIButton!
     @IBOutlet weak var pickerBPM: UIPickerView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - Initialization
     
@@ -50,9 +51,10 @@ class MetronomeViewController: UIViewController {
     }
     
     private func setupUI() {
+        presenter?.updateTitle()
         pickerBPM.selectRow(0, inComponent: 0, animated: false)
         pickerBPM.transform = CGAffineTransform(rotationAngle: -90 * (.pi/180))
-        pickerBPM.frame = CGRect(x: -100, y: 93, width: view.frame.width+200, height: 100)
+        pickerBPM.frame = CGRect(x: -100, y: 120, width: view.frame.width+200, height: 100)
     }
     
 }
@@ -60,6 +62,10 @@ class MetronomeViewController: UIViewController {
 // MARK: - Extensions
 
 extension MetronomeViewController: MetronomeViewProtocol {
+    
+    func setTitle(to title: String) {
+        titleLabel.text = title
+    }
     
     func setValueOnPicker(to bpm: Int) {
         pickerBPM.selectRow(bpm - GlobalSettings.MIN_BPM, inComponent: 0, animated: true)

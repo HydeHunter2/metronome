@@ -24,10 +24,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fileTextField.text = GlobalSettings.NAME_OF_UNTITLED_PRESET
+        fileTextField.text = presenter?.getTitleOfActivePreset()
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     // MARK: - Public
@@ -42,7 +41,32 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: SettingsViewProtocol {
     
-    func getNameOfActivePreset() -> String {
+    func setTitle(_ title: String) {
+        fileTextField?.text = title
+    }
+    
+    func showAlert(withTitle title: String, message: String,
+                   okayString: String, okayFunction: (() -> ())?,
+                   cancelString: String, cancelFunction: (() -> ())?)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: okayString, style: .default) { _ in
+            okayFunction?()
+        })
+        alert.addAction(UIAlertAction(title: cancelString, style: .destructive) { _ in
+            cancelFunction?()
+        })
+
+        present(alert, animated: true)
+    }
+    
+    
+    func close() {
+        dismiss(animated: true)
+    }
+    
+    func getTitle() -> String {
         fileTextField.text ?? GlobalSettings.NAME_OF_UNTITLED_PRESET
     }
     

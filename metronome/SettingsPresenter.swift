@@ -11,14 +11,18 @@ import Foundation
 // MARK: - Protocols
 
 protocol SettingsViewProtocol: class {
+    func close()
+    func showAlert(withTitle title: String, message: String, okayString: String, okayFunction: (() -> ())?, cancelString: String, cancelFunction: (() -> ())?)
     func removeTableRow(withIndex index: Int)
-    func getNameOfActivePreset() -> String
+    func getTitle() -> String
+    func setTitle(_ title: String)
     func updateTable()
 }
 
 protocol SettingsPresenterProtocol {
     init(view: SettingsViewProtocol, model: Settings)
     func getNumberOfPresets() -> Int
+    func getTitleOfActivePreset() -> String
     func selectRow(withIndex index: Int)
     func deleteRow(withIndex index: Int)
     func save()
@@ -36,7 +40,7 @@ protocol ChildSettingsPresenterProtocol {
     var parentPresenter: ParentOfSettingsPresenterProtocol? { get set }
     var settings: Settings { get set }
     func updateTable()
-    
+    func updateTitle()
 }
 
 // MARK: - Main
@@ -61,6 +65,14 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     // MARK: - Public
     
+    func getTitleOfActivePreset() -> String {
+        settings.activePreset.title
+    }
+    
+    func updateTitle() {
+        view.setTitle(getTitleOfActivePreset())
+    }
+    
     func getNameOfRow(withIndex index: Int) -> String {
         settings.presets[index].title
     }
@@ -74,8 +86,8 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     }
     
     func selectRow(withIndex index: Int) {
-        parentPresenter?.unwindFromSettings(withData: settings.presets[index])
         parentPresenter?.vibrationManager.successNotification()
+        unwind(withPreset: settings.presets[index])
     }
     
     func deleteRow(withIndex index: Int) {
@@ -86,21 +98,32 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     func save() {
         
-        let title = view.getNameOfActivePreset()
-        // do some checks
+        settings.activePreset.title = view.getTitle()
+        let title = settings.activePreset.title
         
         if settings.presets.map({ $0.title }).contains(title) {
             parentPresenter?.vibrationManager.errorNotification()
+            
+            view.showAlert(withTitle: "Preset called \(settings.activePreset.title) already exists",
+                           message: "Do you want to overwrite it?",
+                           okayString: "Yes", okayFunction: {
+                               let index = self.settings.presets.map({ $0.title }).firstIndex(of: title)!
+                               self.overwritePreset(withIndex: index, on: self.settings.activePreset)
+                           },
+                           cancelString: "No", cancelFunction: nil)
+            
             return
+            
         } else {
             parentPresenter?.vibrationManager.successNotification()
         }
         
-        settings.activePreset.title = title
         settings.presets.append(settings.activePreset)
         
         syncStorage()
         updateTable()
+        
+        unwind(withPreset: settings.activePreset)
     }
     
     func updateTable() {
@@ -112,6 +135,20 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
     
     private func syncStorage() {
         parentPresenter?.storageManager.setData(settings.presets)
+    }
+    
+    private func unwind(withPreset preset: Preset) {
+        parentPresenter?.unwindFromSettings(withData: preset)
+        view.close()
+    }
+    
+    private func overwritePreset(withIndex index: Int, on preset: Preset) {
+        settings.presets[index] = preset
+        
+        syncStorage()
+        updateTable()
+        
+        unwind(withPreset: settings.activePreset)
     }
     
 }

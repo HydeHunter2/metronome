@@ -105,6 +105,7 @@ class MainTabBarPresenter: MainTabBarPresenterProtocol, ParentOfEditableTablePre
     
     func moveToSettings(withData data: Preset) {
         settingsPresenter.settings.activePreset = data
+        settingsPresenter.updateTitle()
         settingsPresenter.updateTable()
         controller.showSettings()
         
@@ -121,8 +122,6 @@ class MainTabBarPresenter: MainTabBarPresenterProtocol, ParentOfEditableTablePre
         collectionPresenter.collection.data = data
         collectionPresenter.updateCollection()
         controller.showCollection()
-        
-        stopMetronome()
     }
     
     var unwindFunctionFromCollection: ((_ data: Data?) -> ())?

@@ -12,6 +12,7 @@ import Foundation
 
 protocol MetronomeViewProtocol: class {
     func setValueOnPicker(to bpm: Int)
+    func setTitle(to title: String)
     func putPauseImageOnPowerButton()
     func putPlayImageOnPowerButton()
     func disableIdleTimer()
@@ -20,6 +21,7 @@ protocol MetronomeViewProtocol: class {
 
 protocol MetronomePresenterProtocol {
     init(view: MetronomeViewProtocol, model: Metronome)
+    func updateTitle()
     func togglePower()
     func tempoTap()
     func changeBPM(to bpm: Int)
@@ -62,6 +64,10 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     
     // MARK: - Public
     
+    func updateTitle() {
+        view.setTitle(to: metronome.title)
+    }
+    
     func togglePower() {
         parentPresenter?.vibrationManager.selectionChanged()
         if metronome.isOff {
@@ -86,9 +92,11 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
     func openSettings() {
         parentPresenter?.unwindFunctionFromSettings = { data in
             self.metronome.beats = data.beats
+            self.metronome.title = data.title
+            self.updateTitle()
             self.changeBPM(to: data.BPM)
         }
-        parentPresenter?.moveToSettings(withData: Preset(title: GlobalSettings.NAME_OF_UNTITLED_PRESET, beats: metronome.beats, BPM: metronome.BPM))
+        parentPresenter?.moveToSettings(withData: Preset(title: metronome.title, beats: metronome.beats, BPM: metronome.BPM))
     }
     
     // MARK: - Private
