@@ -111,7 +111,6 @@ class SettingsPresenter: SettingsPresenterProtocol, ChildSettingsPresenterProtoc
                                self.overwritePreset(withIndex: index, on: self.settings.activePreset)
                            },
                            cancelString: "No", cancelFunction: nil)
-            
             return
             
         } else {
