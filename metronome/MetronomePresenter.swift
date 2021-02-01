@@ -72,8 +72,7 @@ class MetronomePresenter: MetronomePresenterProtocol, ChildMetronomePresenterPro
         parentPresenter?.vibrationManager.selectionChanged()
         if metronome.isOff {
             turnOnMetronome()
-        }
-        else if metronome.isOn {
+        } else if metronome.isOn {
             turnOffMetronome()
         }
     }
