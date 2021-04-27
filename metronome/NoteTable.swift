@@ -11,5 +11,5 @@ import Foundation
 // MARK: - Main
 
 struct NoteTable: TableProtocol {
-    var data: [[Data?]] = GlobalSettings.STANDART_NOTES
+  var data: [[Data?]] = GlobalSettings.STANDART_NOTES
 }

@@ -10,18 +10,21 @@ import UIKit
 
 // MARK: - Main
 
-class NoteTableViewController: EditableTable  {
+class NoteTableViewController: EditableTable {
 
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return (presenter?.getNumberOfRowInSection(withIndex: indexPath.section) ?? 0) > 1
+  // MARK: - Public
+
+  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    if (presenter?.getNumberOfRowInSection(withIndex: indexPath.section) ?? 0) > 1 {
+      return UITableViewCell.EditingStyle.delete
+    } else {
+      return UITableViewCell.EditingStyle.none
     }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if (presenter?.getNumberOfRowInSection(withIndex: indexPath.section) ?? 0) > 1 {
-            return UITableViewCell.EditingStyle.delete
-        } else {
-            return UITableViewCell.EditingStyle.none
-        }
-    }
-    
+  }
+
+  // MARK: - Extensions
+
+  override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    return (presenter?.getNumberOfRowInSection(withIndex: indexPath.section) ?? 0) > 1
+  }
 }

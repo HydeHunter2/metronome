@@ -11,5 +11,5 @@ import Foundation
 // MARK: - Main
 
 struct Collection {
-    var data: [Data?] = []
+  var data: [Data?] = []
 }

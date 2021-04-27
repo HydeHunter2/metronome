@@ -11,60 +11,59 @@ import Foundation
 // MARK: - Protocols
 
 protocol CollectionViewProtocol: class {
-    func updateCollection()
+  func updateCollection()
 }
 
 protocol CollectionPresenterProtocol {
-    init(view: CollectionViewProtocol, model: Collection)
-    func getNumberOfCells() -> Int
-    func selectCell(withIndex index: Int)
-    func getImageName(forIndex index: Int) -> String
+  init(view: CollectionViewProtocol, model: Collection)
+  func getNumberOfCells() -> Int
+  func selectCell(withIndex index: Int)
+  func getImageName(forIndex index: Int) -> String
 }
 
 protocol ParentOfCollectionPresenterProtocol {
-    var vibrationManager: VibrationManagerProtocol { get set }
-    func unwindFromCollection(data: Data?)
+  var vibrationManager: VibrationManagerProtocol { get set }
+  func unwindFromCollection(data: Data?)
 }
 
 protocol ChildCollectionPresenterProtocol {
-    var parentPresenter: ParentOfCollectionPresenterProtocol? { get set }
-    var collection: Collection { get set }
-    func updateCollection()
+  var parentPresenter: ParentOfCollectionPresenterProtocol? { get set }
+  var collection: Collection { get set }
+  func updateCollection()
 }
 
 // MARK: - Main
 
 class CollectionPresenter: CollectionPresenterProtocol, ChildCollectionPresenterProtocol {
 
-    // MARK: - Initialization
-    
-    var parentPresenter: ParentOfCollectionPresenterProtocol?
-    
-    unowned let view: CollectionViewProtocol
-    var collection: Collection
-    
-    required init(view: CollectionViewProtocol, model: Collection) {
-        self.view = view
-        self.collection = model
-    }
-    
-    // MARK: - Public Properties
-    
-    func getNumberOfCells() -> Int {
-        collection.data.count
-    }
-    
-    func getImageName(forIndex index: Int) -> String {
-        collection.data[index]?.name() ?? GlobalSettings.STRING_OF_NILDATA
-    }
-    
-    func selectCell(withIndex index: Int) {
-        parentPresenter?.unwindFromCollection(data: collection.data[index])
-        parentPresenter?.vibrationManager.selectionChanged()
-    }
-    
-    func updateCollection() {
-        view.updateCollection()
-    }
-    
+  // MARK: - Initialization
+
+  var parentPresenter: ParentOfCollectionPresenterProtocol?
+
+  unowned let view: CollectionViewProtocol
+  var collection: Collection
+
+  required init(view: CollectionViewProtocol, model: Collection) {
+    self.view = view
+    self.collection = model
+  }
+
+  // MARK: - Public
+
+  func getNumberOfCells() -> Int {
+    collection.data.count
+  }
+
+  func getImageName(forIndex index: Int) -> String {
+    collection.data[index]?.name() ?? GlobalSettings.STRING_OF_NILDATA
+  }
+
+  func selectCell(withIndex index: Int) {
+    parentPresenter?.unwindFromCollection(data: collection.data[index])
+    parentPresenter?.vibrationManager.selectionChanged()
+  }
+
+  func updateCollection() {
+    view.updateCollection()
+  }
 }

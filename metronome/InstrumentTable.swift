@@ -11,5 +11,5 @@ import Foundation
 // MARK: - Main
 
 struct InstrumentTable: TableProtocol {
-    var data: [[Data?]] = GlobalSettings.STANDART_INSTRUMENTS
+  var data: [[Data?]] = GlobalSettings.STANDART_INSTRUMENTS
 }

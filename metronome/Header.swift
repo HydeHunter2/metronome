@@ -11,6 +11,6 @@ import UIKit
 // MARK: - Main
 
 class HeaderView: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var addInstrumentButton: UIButton!
+  @IBOutlet weak var title: UILabel!
+  @IBOutlet weak var addInstrumentButton: UIButton!
 }

@@ -14,51 +14,59 @@ import XCTest
 class MainTabBarPresenterTest: XCTestCase {
 
     // MARK: - Initialization
-    
+
     var storageManager: MockStorageManager!
     var soundManager: MockSoundManager!
     var vibrationManager: MockVibrationManager!
-    
+
     var metronomePresenter: MockMetronomePresenter!
     var settingsPresenter: MockSettingsPresenter!
     var instrumentPresenter: MockEditableTablePresenter!
     var notePresenter: MockEditableTablePresenter!
     var collectionPresenter: MockCollectionPresenter!
-    
+
     var controller: MockMainTabBarController!
     var presenter: MainTabBarPresenter!
-    
+
     override func setUp() {
         storageManager = MockStorageManager()
         soundManager = MockSoundManager()
         vibrationManager = MockVibrationManager()
-        
+
         metronomePresenter = MockMetronomePresenter()
         settingsPresenter = MockSettingsPresenter()
         instrumentPresenter = MockEditableTablePresenter()
         notePresenter = MockEditableTablePresenter()
         collectionPresenter = MockCollectionPresenter()
-        
+
         controller = MockMainTabBarController()
-        presenter = MainTabBarPresenter(controller: controller, metronome: metronomePresenter, settings: settingsPresenter, instrument: instrumentPresenter, note: notePresenter, collection: collectionPresenter, storageManager: storageManager, soundManager: soundManager, vibrationManager: vibrationManager)
+        presenter = MainTabBarPresenter(controller: controller,
+                                        metronome: metronomePresenter,
+                                        settings: settingsPresenter,
+                                        instrument: instrumentPresenter,
+                                        note: notePresenter,
+                                        collection: collectionPresenter,
+                                        storageManager: storageManager,
+                                        soundManager: soundManager,
+                                        vibrationManager: vibrationManager)
     }
 
     override func tearDown() {
         storageManager = nil
         soundManager = nil
         vibrationManager = nil
-        
+
         metronomePresenter = nil
         settingsPresenter = nil
         instrumentPresenter = nil
         notePresenter = nil
         collectionPresenter = nil
-        
+
         controller = nil
         presenter = nil
     }
-    
-    //MARK: - Tests
+
+    // MARK: - Tests
 
     func testPassingDataToMetronomePresenter() {
         let numberOfTicks = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
@@ -70,7 +78,7 @@ class MainTabBarPresenterTest: XCTestCase {
             for _ in 0..<numberOfInstruments {
                 instruments[tick].append(Instrument.all.randomElement() as! Instrument?)
             }
-            
+
             let numberOfNotes = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
             notes.append([])
             for _ in 0..<numberOfNotes {
@@ -79,13 +87,13 @@ class MainTabBarPresenterTest: XCTestCase {
         }
         instrumentPresenter.table.data = instruments
         notePresenter.table.data = notes
-        
+
         presenter.passDataToMetronomePresenter()
-        
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.instruments }, instruments)
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.notes }, notes)
+
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.instruments }, instruments)
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.notes }, notes)
     }
-    
+
     func testPassingDataToMetronomePresenterWhenNumberOfNotesIsLess() {
         let numberOfTicks = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
         let numberOfNotes = Int.random(in: 0..<numberOfTicks)
@@ -97,9 +105,9 @@ class MainTabBarPresenterTest: XCTestCase {
             for _ in 0..<numberOfInstruments {
                 instruments[tick].append(Instrument.all.randomElement() as! Instrument?)
             }
-            
+
             if tick > numberOfNotes { continue }
-            
+
             let numberOfNotes = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
             notes.append([])
             for _ in 0..<numberOfNotes {
@@ -108,14 +116,14 @@ class MainTabBarPresenterTest: XCTestCase {
         }
         instrumentPresenter.table.data = instruments
         notePresenter.table.data = notes
-        
+
         presenter.passDataToMetronomePresenter()
-        
-        notes += Array<[Note?]>(repeating: [], count: numberOfTicks - numberOfNotes - 1)
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.instruments }, instruments)
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.notes }, notes)
+
+        notes += [[Note?]](repeating: [], count: numberOfTicks - numberOfNotes - 1)
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.instruments }, instruments)
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.notes }, notes)
     }
-    
+
     func testPassingDataToMetronomePresenterWhenNumberOfNotesIsGreater() {
         let numberOfTicks = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
         let numberOfNotes = Int.random(in: (numberOfTicks+1)...GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST.upperBound)
@@ -127,9 +135,9 @@ class MainTabBarPresenterTest: XCTestCase {
             for _ in 0..<numberOfNotes {
                 notes[tick].append(Note.all.randomElement() as! Note?)
             }
-            
+
             if tick > numberOfTicks { continue }
-            
+
             let numberOfInstruments = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
             instruments.append([])
             for _ in 0..<numberOfInstruments {
@@ -138,14 +146,14 @@ class MainTabBarPresenterTest: XCTestCase {
         }
         instrumentPresenter.table.data = instruments
         notePresenter.table.data = notes
-        
+
         presenter.passDataToMetronomePresenter()
-        
+
         notes = Array(notes[...numberOfTicks])
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.instruments }, instruments)
-        XCTAssertEqual(metronomePresenter.metronome.beats.map{ $0.notes }, notes)
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.instruments }, instruments)
+        XCTAssertEqual(metronomePresenter.metronome.beats.map { $0.notes }, notes)
     }
-    
+
     func testSyncingData() {
         let numberOfTicks = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
         var beats = [(instruments: [Instrument?], notes: [Note?])]()
@@ -155,29 +163,29 @@ class MainTabBarPresenterTest: XCTestCase {
             for _ in 0..<numberOfInstruments {
                 instrumentsTick.append(Instrument.all.randomElement() as! Instrument?)
             }
-            
+
             let numberOfNotes = Int.random(in: GlobalSettings.RANGE_OF_DATA_IN_TICK_TO_TEST)
             var notesTick: [Note?] = []
             for _ in 0..<numberOfNotes {
                 notesTick.append(Note.all.randomElement() as! Note?)
             }
-            
+
             beats.append((instruments: instrumentsTick, notes: notesTick))
         }
         metronomePresenter.metronome.beats = beats
         metronomePresenter.metronome.isOn = true
-        
+
         presenter.syncData()
-        
+
         XCTAssertTrue(metronomePresenter.metronome.isOff)
         XCTAssertTrue(instrumentPresenter.tableIsUpdated)
         XCTAssertTrue(notePresenter.tableIsUpdated)
-        XCTAssertEqual(instrumentPresenter.table.data.map{ $0 as! [Instrument?] }, metronomePresenter.metronome.beats.map{ $0.instruments })
-        XCTAssertEqual(notePresenter.table.data.map{ $0 as! [Note?] }, metronomePresenter.metronome.beats.map{ $0.notes })
+        XCTAssertEqual(instrumentPresenter.table.data.map { $0 as! [Instrument?] }, metronomePresenter.metronome.beats.map { $0.instruments })
+        XCTAssertEqual(notePresenter.table.data.map { $0 as! [Note?] }, metronomePresenter.metronome.beats.map { $0.notes })
     }
-    
+
     // MARK: - Mocks
-    
+
     class MockMainTabBarController: MainTabBarControllerProtocol {
         func showCollection() {}
         func showSettings() {}
@@ -191,11 +199,15 @@ class MainTabBarPresenterTest: XCTestCase {
         }
     }
 
-    class MockSettingsPresenter: ChildSettingsPresenterProtocol {
+  class MockSettingsPresenter: ChildSettingsPresenterProtocol {
+        func updateTitle() {
+
+        }
+
         var parentPresenter: ParentOfSettingsPresenterProtocol?
         var settings = Settings()
         func updateTable() {
-            
+
         }
     }
 
@@ -206,7 +218,7 @@ class MainTabBarPresenterTest: XCTestCase {
         func updateTable() {
             tableIsUpdated = true
         }
-        
+
         struct Table: TableProtocol {
             var data = [[metronome.Data?]]()
         }
@@ -217,12 +229,12 @@ class MainTabBarPresenterTest: XCTestCase {
         var collection = Collection()
         func updateCollection() {}
     }
-    
+
     class MockStorageManager: StorageManagerProtocol {
         func getData() -> [StorageObjectProtocol] { return [Preset.empty] }
         func setData(_ data: [StorageObjectProtocol]) {}
     }
-    
+
     class MockSoundManager: SoundManagerProtocol {
         func playIntro(withTickDuration tickDuration: Double) {}
         func off() {}
@@ -230,7 +242,7 @@ class MainTabBarPresenterTest: XCTestCase {
         func playTick(withSounds sounds: [Sound], tickDuration: Double) {}
         func playSound(_ sound: Sound) {}
     }
-    
+
     class MockVibrationManager: VibrationManagerProtocol {
         func selectionChanged() {}
         func successNotification() {}
@@ -242,5 +254,5 @@ class MainTabBarPresenterTest: XCTestCase {
         func softImpact() {}
         func rigidImpact() {}
     }
-    
+
 }

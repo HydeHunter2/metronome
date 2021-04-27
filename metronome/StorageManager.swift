@@ -11,8 +11,8 @@ import Foundation
 // MARK: - Protocols
 
 protocol StorageManagerProtocol {
-    func getData() -> [StorageObjectProtocol]
-    func setData(_ data: [StorageObjectProtocol])
+  func getData() -> [StorageObjectProtocol]
+  func setData(_ data: [StorageObjectProtocol])
 }
 
 protocol StorageObjectProtocol: NSObject, NSCoding {}
@@ -20,30 +20,31 @@ protocol StorageObjectProtocol: NSObject, NSCoding {}
 // MARK: - Main
 
 class StorageManager<Object: StorageObjectProtocol>: StorageManagerProtocol {
-    
-    // MARK: - Initialization
-    
-    var userDefaults = UserDefaults.standard
-    var keySaving: String
-    
-    init(withKeySavingString keySaving: String) {
-        self.keySaving = keySaving
+
+  // MARK: - Initialization
+
+  var userDefaults = UserDefaults.standard
+  var keySaving: String
+
+  init(withKeySavingString keySaving: String) {
+    self.keySaving = keySaving
+  }
+
+  func getData() -> [StorageObjectProtocol] {
+    guard let decoded = userDefaults.data(forKey: keySaving),
+          let presets = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Object]
+          else {
+      return []
     }
-    
-    func getData() -> [StorageObjectProtocol] {
-        guard let decoded = userDefaults.data(forKey: keySaving),
-              let presets = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Object]
-              else {
-                return []
-              }
-        
-        return presets
+
+    return presets
+  }
+
+  func setData(_ data: [StorageObjectProtocol]) {
+    guard let data = data as? [Object] else {
+      return
     }
-    
-    func setData(_ data: [StorageObjectProtocol]) {
-        guard let data = data as? [Object] else { return }
-        userDefaults.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: keySaving)
-        userDefaults.synchronize()
-    }
-    
+    userDefaults.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: keySaving)
+    userDefaults.synchronize()
+  }
 }

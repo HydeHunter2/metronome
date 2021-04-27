@@ -11,6 +11,6 @@ import Foundation
 // MARK: - Main
 
 struct Settings {
-    var presets = [Preset]()
-    var activePreset = Preset.empty
+  var presets = [Preset]()
+  var activePreset = Preset.empty
 }

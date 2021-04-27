@@ -11,11 +11,11 @@ import Foundation
 // MARK: - Protocols
 
 protocol TableProtocol {
-    var data: [[Data?]] { get set }
+  var data: [[Data?]] { get set }
 }
 
 // MARK: - Main
 
 struct Table: TableProtocol {
-    var data: [[Data?]] = []
+  var data: [[Data?]] = []
 }

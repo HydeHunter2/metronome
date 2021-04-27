@@ -11,10 +11,10 @@ import UIKit
 // MARK: - Main
 
 class CollectionCell: UICollectionViewCell {
-    static let reuseID = String(describing: CollectionCell.self) + "View"
-    static let nib = UINib(nibName: reuseID, bundle: nil)
-    
-    @IBOutlet weak var soundButton: UIButton!
-    
-    var index = 0
+  static let reuseID = String(describing: CollectionCell.self) + "View"
+  static let nib = UINib(nibName: reuseID, bundle: nil)
+
+  @IBOutlet weak var soundButton: UIButton!
+
+  var index = 0
 }

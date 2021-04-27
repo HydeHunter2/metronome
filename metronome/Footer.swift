@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Main
 
 class FooterView: UITableViewCell {
-    @IBOutlet weak var addButton: UIButton!
-    
-    var section = 0
+  @IBOutlet weak var addButton: UIButton!
+
+  var section = 0
 }
